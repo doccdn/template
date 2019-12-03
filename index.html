@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hant-CN" data-ng-app="app">
+<head>
+<title>SP Console - Sharp Point</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="ng-template/ng-template.css" rel="stylesheet">
+</head>
+<body data-ng-controller="formCtrl">
+<data-ng-temp-table data-elem-css="elemCss" data-table-config="tableConfig" data-table-data="tableData" ></data-ng-temp-table>
+<form id="form1" name="form1" data-ng-if="formConfig">
+	<data-ng-temp-form data-elem-css="elemCss" data-form-config="formConfig" data-form-obj="formObj" data-form-elem="form1" ></data-ng-temp-form>
+	<a data-ng-class="elemCss.submitBtn" data-ng-repeat="(x, obj) in formAction" data-ng-bind="obj.text" data-ng-click="formSubmit(obj.action, form1, formObj)"></a>
+</form>
+</body>
+<script src="https://profile1.spsystem.info/doc/libs/angular-1.4.1.min.js"></script><!-- defer="true" -->
+<script src="ng-template/ng-template.js"></script>
+<script >
+(function () {
+	var elemCss = {
+		//form
+		elemBox: "tfForm-elem"
+		, subjectBox: "tfForm-subject"
+		, itemBox: "tfForm-item"
+		, input: "tfForm-dirty tfForm-input"
+		, password: "tfForm-dirty tfForm-input"
+		, short: "tfForm-dirty tfForm-input tfForm-short"
+		, long: "tfForm-dirty tfForm-input tfForm-long"
+		, full: "tfForm-dirty tfForm-input tfForm-full"
+		, submitBtn: "tfForm-submitBtn"
+		, select: "tfForm-dirty tfForm-select"
+		, textarea: "tfForm-dirty tfForm-textarea"
+		, blog: "tfForm-dirty tfForm-blog"
+		, list: "tfForm-list"
+		, listSelect: "tfForm-listSelect"
+		, radio: "tfForm-radio"
+		//common
+		, normalText: "tfForm-text"
+		, smallText: "tfForm-small"
+		, lightText: "tfForm-light"
+		, linkText: "tfForm-link"
+		, errorText: "tfForm-error"
+		, btn: "tfForm-btn"
+		, minibtn: "tfForm-btn tfForm-mini"
+		, checkbox: "tfForm-checkbox"
+		//table
+		, searchBox: "tfForm-searchBox"
+		, choiceBtnBox: "tfForm-choiceBtnBox"
+		, filter: "tfForm-input tfForm-short tfForm-filter"
+		, choice: "tfForm-choice"
+		, pageRecord: "tfForm-pageRecord"
+		, pageRecord: "tfForm-pageRecord"
+		, pageBox: "tfForm-pageBox"
+		, pageCtrl: "tfForm-pageCtrl"
+		, pageNum: "tfForm-pageNum"
+		, table: "tfForm-table"
+		, tableThTr: "tfForm-tableThTr"
+		, tableTh: "tfForm-tableTh"
+		, tableTr: "tfForm-tableTr"
+		, tableTd: "tfForm-tableTd"
+		
+		, img: "tfForm-img"
+		, imgzoom: "tfForm-imgzoom"
+	};
+	
+	var formConfig = [
+		{ name: "text", elem: "text", subject: "text", text: "text", help: "help", hide: false }
+		, { name: "light", elem: "light", subject: "light", text: "light", help: "" }
+		, { name: "small", elem: "small", subject: "small", text: "small", help: "" }
+		, { name: "link", elem: "link", subject: "link", text: "link", value: "value", help: "" }
+		, { name: "date", elem: "date", subject: "date", text: "1528891744", pattem: "yyyy年MM月dd日 HH:mm:ss", help: "" }
+		, { name: "btn", elem: "btn", subject: "btn", text: "btn", fn: null, help: "" }
+		, { name: "minibtn", elem: "minibtn", subject: "minibtn", text: "minibtn", fn: null, help: "" }
+		, { name: "short", elem: "short", subject: "short", text: "short", pattem: /^[0-9]{0,}$/, required: false, disabled: false, help: "" }
+		, { name: "input", elem: "input", subject: "input", text: "input", pattem: /^[0-9]{0,}$/, required: false, disabled: false, help: "", errorMsg: {required:  "input内容必需填写", minlength: "input内容设置过短", maxlength: "input内容设置过长", pattern: "input内容格式不符"}}
+		, { name: "long", elem: "long", subject: "long", text: "long", pattem: "", required: false, disabled: false, help: "" }
+		, { name: "full", elem: "full", subject: "full", text: "full", pattem: "", required: false, disabled: false, help: "" }
+		, { name: "password", elem: "password", subject: "password", text: "password", pattem: "", required: false, disabled: false, help: "" }
+		, { name: "select", elem: "select", subject: "select", text: "-- 选择 --", option: [{id: 1, name: "name1"}, {id: 2, name: "name2"}], help: "" }
+		, { name: "list", elem: "list", subject: "list", option: [{id: 1, name: "name1"}, {id: 2, name: "name2"}, {id: 3, name: "name3"}], help: ""}
+		, { name: "textarea", elem: "textarea", subject: "textarea", text: "textarea", help: ""}
+		, { name: "blog", elem: "blog", subject: "blog", text: "blog", help: ""}
+		, { name: "radio", elem: "radio", subject: "radio", option:  [{id: 1, name: "name1"}, {id: 2, name: "name2"}], disabled: false, help: ""}
+		, { name: ["checkbox1","checkbox2"], elem: "checkbox", subject: "checkbox", text: ["开启1","开启2"], option: [0, 1], disabled: [false, false], help: ""}
+	];
+	
+	var tableConfig = {
+		choiceBtn: [
+			{text: "text", css: "tfForm-btn tfForm-join", fn: function(checkbox, keys, tableData){ console.log("checkbox, keys, tableData", checkbox, keys, tableData) } } //[], [], []
+		]
+		, listBtn : [
+			{text: "text", css: "tfForm-btn tfForm-mini", fn: function(index, keys, obj){ console.log("index, keys, obj", index, keys, obj) } } //[], [], []
+		]
+		, objKeys: ["text","small"]
+		, objField:[
+			{name: "text", text: "text", elem: "text", value: {text: "文字"}, width: "", before: "", unit: "", help: "help" } //num, [], {}
+			, {name: "small", text: "small", elem: "small", value: null, width: "", before: "", unit: "", help: "" }
+			, {name: "light", text: "light", elem: "light", value: null, width: "", before: "", unit: "", help: "" }
+			, {name: "timestamp", text: "timestamp", elem: "timestamp", value: null, pattem: "yyyy-MM-dd  HH:mm:ss", width: "", before: "", unit: "", help: "" }
+			, {name: "password", text: "password", elem: "password", value: null, width: "", before: "", unit: "", help: "" }
+			, {name: "fn", text: "fn", elem: "fn", value: null, width: "", before: "", unit: "", help: "", fn: function(index, keys, obj, name, value){ console.log("index, keys, obj, name, value", index, keys, obj, name, value) }, fnText: "fnText"}
+			, {name: "url", text: "url", elem: "url", value: null, width: "", before: "", unit: "", help: "" }
+			, {name: "selfurl", text: "selfurl", elem: "selfurl", value: null, width: "", before: "", unit: "", help: "" }
+			, {name: "img", text: "img", elem: "img", value: null, width: "", before: "", unit: "", help: "" }
+		]
+	};
+	
+	
+	
+	var formCtrl = function($scope){
+		$scope.elemCss = elemCss;
+		
+		$scope.formConfig = formConfig;
+		$scope.formObj = {aaa: 11};
+		$scope.formAction = [{action: "add", text: "add"}, {action: "edit", text: "edit"}];
+		$scope.formSubmit = function(action, form, formObj){
+			console.log("action, form, formObj", action, form, formObj);
+		}
+		
+		$scope.tableConfig = tableConfig;
+		$scope.tableData = [
+			{text: "text", small: "small", light: "light", timestamp: "1528891744", password: "password", url: "url", fn: "fn", selfurl: "selfurl", img: "http://218.255.239.230:9006/doc/logo/SP_LOGO.jpg"}
+			, {text: "text", small: "small", light: "light", timestamp: "1528891744", password: "password", url: "url", fn: "fn", selfurl: "selfurl", img: "http://218.255.239.230:9006/doc/logo/SP_LOGO.jpg"}
+			, {text: "text", small: "small", light: "light", timestamp: "1528891744", password: "password", url: "url", fn: "fn", selfurl: "selfurl", img: "http://218.255.239.230:9006/doc/logo/SP_LOGO.jpg"}
+		];
+		
+		
+	};
+	
+	angular.module("app", ["ngTemplate"])
+	.controller('formCtrl', formCtrl);
+}());
+</script>
+</html>

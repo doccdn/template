@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="app">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS FORM測試</title>
+<script src="https://cdn.jsdelivr.net/npm/angular@1.4.14/angular.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-func-3.01.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-func-3.01.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-tf-template-3.01.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-pattem-3.01.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-ajax-1.01.min.js"></script>-->
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-style-3.02.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-animation-3.01.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-icon-3.01.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-form-3.01.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-func-3.01.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Titillium+Web:300,400,600" rel="stylesheet">
+<style>
+.form{ float: left; width: 928px; border: 1px solid #DDD; margin: 10px !important; position:relative; overflow: hidden; }
+.table{ float: left; width: 928px; margin: 10px !important; position:relative; overflow: hidden; }
+</style>
+</head>
+<body class="tf-body" ng-controller="mainCtrl">
+
+	<form class="form" data-ng-submit="dqFn.callback('form', 'test', form1, vm.formData)" name="form1"  data-ng-init="vm.formData = {}">
+		<div class="tfForm-item-full">
+	    	<div class="tfForm-text">第一层 tfForm-item(默认m上18%) + tfForm-item-full(默认m上18%) + tfForm-title + tfForm-note + tfForm-line</div>
+	    	<div class="tfForm-text">第二层 tfForm-subject + tfForm-con + tfForm-text + tfForm-eg + tfForm-inline + tfForm-line</div>
+	    	<div class="tfForm-text">第三层 tfForm-info + tfForm-join(图) + tfForm-right + tfForm-fixed(默认m左52%)</div>
+	    	<div class="tfForm-text">层分布 (one to eight) 二层tf-inline > tf-inline-two 或 三层直接tf-inline tf-inline-two</div>
+	    </div>
+	    <br />
+	    <div class="tfForm-nav tf-border-orange2">
+	    	<a class="tf-button tf-hover tf-short tf-bg-orange2">导航</a>
+	    	<a class="tf-button tf-hover tf-short tf-bg-black2 tf-btn-orange2">导航</a>
+	    </div>
+    	<br />
+    	<div class="tfForm-title tf-subject tf-orange2"><i class="tf-title-icon2 tf-bg-orange2"></i>表单标题 tfForm-title tf-subject tf-orange2 > i tf-title-icon2 tf-bg-orange2 + tf-close tf-close-blue<a class="tf-close tf-close-blue"></a></div>
+    	<div class="tfForm-title tf-caption tf-caption3 tf-border-orange2"><span class="tf-caption-text tf-orange2">表单标题 tfForm-title tf-caption tf-caption3 tf-border-orange2 > tf-caption-text tf-orange2</span></div>
+    	<div class="tfForm-title tf-caption tf-caption5 tf-bg-white1 tf-border-orange2"><span class="tf-caption-text tf-orange2">表单标题 tfForm-title tf-caption tf-caption5 tf-bg-white1 tf-border-orange2 > tf-caption-text tf-orange2</span></div>
+    	<div class="tfForm-title tf-bg-blue3">表单标题 tfForm-title tf-bg-blue3 + tf-close tf-close-white <a class="tf-close tf-close-white"></a></div>
+	    <div class="tfForm-title tf-bg-green1">表单标题 tfForm-title tf-bg-green1 + tf-close tf-close-white <a class="tf-close tf-close-white"></a></div>
+	    <div class="tfForm-title tf-bg-orange2 ">表单标题 tfForm-title tf-bg-orange2  + tf-close tf-close-white <a class="tf-close tf-close-white"></a></div>
+	    <div class="tfForm-title tf-bg-brown2 ">表单标题 tfForm-title tf-bg-brown2  + tf-close tf-close-red <a class="tf-close tf-close-red"></a></div>
+	    <div class="tfForm-title tf-bg-gray6">表单标题 tfForm-title tf-bg-gray6 + tf-close tf-close-black <a class="tf-close tf-close-black"></a></div>
+	    <div class="tfForm-note tf-bg-gray5">文章 tfForm-note tf-bg-gray5 您在使用本网站进行内容的下载、传播或者任何本网站提示需要注册的服务时，您必须按照本网站的注册帐号流程进行注册并获得帐号使用权，并确保注册信息的真实性、正确性及完整性。您确认，在您完成注册程序或以其他本网站允许的方式实际使用本网站服务时，您应当是具备完全民事行为能权利能力和完全民事力的自然人、法人或其他组织，且有义务在注册时提供有效身份证或营业执照等身份证明文件的复印件。如果上述注册信息发生变化，您应及时更改以通知本网站。用户对任何人利用其密码及帐号所进行的活动负完全的责任。</div>
+	    <div class="tfForm-note tf-bg-yellow1">文章 tfForm-note tf-bg-gray5 您在使用本网站进行内容的下载、传播或者任何本网站提示需要注册的服务时，您必须按照本网站的注册帐号流程进行注册并获得帐号使用权，并确保注册信息的真实性、正确性及完整性。您确认，在您完成注册程序或以其他本网站允许的方式实际使用本网站服务时，您应当是具备完全民事行为能权利能力和完全民事力的自然人、法人或其他组织，且有义务在注册时提供有效身份证或营业执照等身份证明文件的复印件。如果上述注册信息发生变化，您应及时更改以通知本网站。用户对任何人利用其密码及帐号所进行的活动负完全的责任。</div>
+	    <br />
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<input type="text" class="tf-input tf-focus-orange2 tf-long tf-3D" value="表单tfForm-item > tfForm-con" />
+	    		<span class="tfForm-fixed">固定tfForm-fixed</span>
+	    		<span class="tfForm-right">靠右tfForm-right</span>
+	    	</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<input type="text" class="tf-input tf-focus-orange2 tf-long tf-3D" value="表单tfForm-item > tfForm-con" />
+	    		<span class="tfForm-info">内容tfForm-info</span>
+	    	</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<input type="text" class="tf-input tf-focus-orange2 tf-long tf-3D" value="表单tfForm-item > tfForm-con" />
+	    		<span class="tfForm-info"><img class="tfForm-join" src="http://cn.doccdn.com/images/vError.png"/>tfForm-join</span>
+	    	</div>
+	    	<div class="tfForm-inline tfForm-text">tfForm-inline tfForm-text</div>
+	    	<div class="tfForm-inline tfForm-text">tfForm-inline tfForm-text</div>
+	    </div>
+	   <div class="tfForm-item">
+	   		<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<input type="text" class="tf-input tf-focus-orange2 tf-long tf-3D" value="表单tfForm-item > tfForm-con" />
+	    		<span class="tfForm-info">
+	    			<a class="tf-btn-hover tf-bg-blue1 tf-3D tfForm-join">tfForm-info > tfForm-join</a>
+	    			<a class="tf-btn-hover tf-bg-blue1 tf-3D">最后不需要</a>
+	    		</span>
+	    	</div>
+	    	<div class="tfForm-eg tfForm-inline tf-red3"><i class="tf-icon-fail tf-icon-small"></i>备注tfForm-item > tfForm-eg tfForm-inline tf-red3 > i tf-icon-fail tf-icon-small </div>
+	    	<div class="tfForm-con tfForm-inline">内联tfForm-item  > tfForm-con tfForm-inline</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con"><img class="tfForm-join" src="http://cn.doccdn.com/images/imgError.jpg" /></div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con tfForm-imgs">
+	    		<a href="" class="tfForm-img"><img class="tfForm-join tf-border-gold5 selected" src="http://cn.doccdn.com/images/imgError.jpg" /></a>
+	    		<a href="" class="tfForm-img"><img class="tfForm-join" src="http://cn.doccdn.com/images/imgError.jpg" /></a>
+	    		<a href="" class="tfForm-img"><img class="tfForm-join" src="http://cn.doccdn.com/images/imgError.jpg" /></a>
+	    	</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con"><div class=" tf-caption tf-caption3"><span class="tf-caption-text tf-strong tf-subject">内联标题 tfForm-con > tf-caption tf-caption3 > tf-caption-text tf-strong tf-subject</span></div><ul class="tfForm-list"><li>tfForm-item > tfForm-con > tfForm-list ul >li</li><li>tfForm-item > tfForm-con > tfForm-list ul >li</li></ul></div>
+	    	<div class="tfForm-eg tfForm-inline"><ul class="tfForm-list tf-list-disc"><li>tfForm-item > tfForm-eg > tfForm-list tf-list-disc ul >li</li><li>tfForm-item > tfForm-eg > tfForm-list tf-list-disc ul >li</li></ul></div>
+	    	<div class="tfForm-mark tfForm-inline"><ul class="tfForm-list tf-list-num"><li>tfForm-item > tfForm-mark > tfForm-list tf-list-num ul >li</li><li>tfForm-item > tfForm-mark> tfForm-list tf-list-num ul >li</li></ul></div>
+	    </div>
+	    <div class="tfForm-item">
+	   		<div class="tfForm-blog"><div class=" tf-caption tf-caption3"><span class="tf-caption-text tf-strong tf-subject">内联标题 tfForm-blog > tf-caption tf-caption3 > tf-caption-text tf-strong tf-subject</span></div><ul class="tfForm-list"><li>tfForm-blog > tfForm-con > tfForm-list ul >li</li><li>tfForm-item > tfForm-con > tfForm-list ul >li</li></ul></div>   
+	    </div>
+	    <div class="tfForm-item">
+			<ul class="tfForm-step">
+				<li class="tfForm-step-first tfForm-step-selected">tfForm-item</li>
+				<li>none</li>
+				<li>selected</li>
+				<li>tfForm-step</li>
+				<li class="tfForm-step-last">none</li>
+			</ul>
+		</div>
+	    <div class="tfForm-item">
+			<ul class="tfForm-step">
+				<li class="tfForm-step-first">tfForm-item</li>
+				<li class="tfForm-step-before">none</li>
+				<li class="tfForm-step-selected">selected</li>
+				<li>tfForm-step</li>
+				<li class="tfForm-step-last">none</li>
+			</ul>
+		</div>
+		<div class="tfForm-item">
+			<ul class="tfForm-step">
+				<li class="tfForm-step-first tfForm-step-before">none</li>
+				<li class="tfForm-step-selected">selected</li>
+				<li>tfForm-item</li>
+				<li>tfForm-step</li>
+				<li class="tfForm-step-last">none</li>
+			</ul>
+		</div>
+		<div class="tfForm-item">
+			<ul class="tfForm-step">
+				<li class="tfForm-step-first">tfForm-item</li>
+				<li>none</li>
+				<li>selected</li>
+				<li class="tfForm-step-before">tfForm-step</li>
+				<li class="tfForm-step-last tfForm-step-selected">none</li>
+			</ul>
+		</div>
+		<div class="tfForm-talk">
+			<div class=" tf-border-gray6 tf-bg-yellow3 tfForm-talk-left" >
+				<p class="tfForm-talk-name tf-brown1">您：</p>
+				<p class="tfForm-talk-con">一大堆内容</p>
+				<p class="tfForm-talk-eg tf-gray1">( 附加 0 个档案 )</p>
+			</div>
+			<div class=" tf-border-gray6 tf-bg-yellow3 tfForm-talk-right" >
+				<p class="tfForm-talk-name tf-brown1">客服：</p>
+				<p class="tfForm-talk-con">一大堆内容</p>
+				<p class="tfForm-talk-eg tf-gray1">( 附加 1 个档案 )</p>
+			</div>
+		</div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-line"></div>
+	    	<div class="tfForm-mark tfForm-inline"><span class="tfForm-right">标记 tfForm-item  > tfForm-line + tfForm-mark tfForm-inline > tfForm-right</span></div>
+	    </div>
+	    <div class="tfForm-line"></div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-mark tfForm-inline"><span class="tfForm-right">标记 tfForm-line + tfForm-item  > tfForm-mark tfForm-inline > tfForm-right</span></div>
+	    </div>
+	</form>
+	    
+	    
+	    
+	<form class="form" data-ng-submit="dqFn.callback('form', 'test', form1, vm.formData)" name="form1"  data-ng-init="vm.formData = {}">
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<input type="text" class="tf-input tf-focus-orange2 tf-long tf-3D tf-ng-dirty" value="表单tfForm-item > tfForm-con" />
+	    		<span class="tfForm-info">tf-input tf-focus-orange2 tf-long tf-3D tf-ng-dirty</span>
+	    	</div>
+	    	<div class="tfForm-eg tfForm-inline tf-red3"><i class="tf-icon-fail tf-icon-small"></i>备注tfForm-item > tfForm-eg tfForm-inline tf-red3 > i tf-icon-fail tf-icon-small </div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<select class="tf-select tf-focus-blue1 tf-long tf-3D"><option value="" selected="selected">选单</option></select>
+	    		<span class="tfForm-info">tf-select tf-focus-blue1 tf-long tf-3D</span>
+	    	</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<input type="text" class="tf-input tf-focus-orange2 tf-short tf-3D tfForm-join" value="" />
+				<a class="tf-btn-hover tf-bg-blue1 tf-short tf-3D tfForm-join">获取验证码</a>
+	    	</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con > tf-input tf-focus-orange2 tf-short tf-3D tfForm-join</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con > tf-btn-hover tf-bg-blue1 tf-short tf-3D tfForm-join</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<input id="checkbox1" type="checkbox" class="tf-checkbox"  /><label for="checkbox1" class="tfForm-label">选择选择</label>
+	    		<input id="checkbox2" type="checkbox" class="tf-checkbox"  /><label for="checkbox2" class="tfForm-label">选择选择</label>
+	    		<span class="tfForm-info">tf-checkbox + tfForm-label</span>
+	    	</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<input id="radio1" name="radio1" type="radio" class="tf-radio"  /><label for="radio1" class="tfForm-label">选择选择</label>
+	    		<input id="radio2" name="radio1" type="radio" class="tf-radio"  /><label for="radio2" class="tfForm-label">选择选择</label>
+	    		<span class="tfForm-info">tf-radio + tfForm-label</span>
+	    	</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<span class="tf-switch"><input class='tgl tgl-light' id='switch1' type='checkbox' checked="checked"><label class='tgl-btn' for='switch3'></label></span>
+	    		<label for="switch1" class="tfForm-label">开关</label>
+	    		<span class="tf-switch tf-switch-red"><input class='tgl tgl-light' id='switch2' type='checkbox' checked="checked"><label class='tgl-btn' for='switch3'></label></span>
+	    		<label for="switch2" class="tfForm-label">开关</label>
+	    	</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<span class="tfForm-checkbox tfForm-label"><label for="checkbox1" class="tfForm-checkbox-label" >按时</label><input id="checkbox1" type="checkbox" class="tfForm-checkbox-input" /></span>
+				<span class="tfForm-checkbox tfForm-label checked"><label for="checkbox2" class="tfForm-checkbox-label" >按时</label><input id="checkbox2" type="checkbox" class="tfForm-checkbox-input" /></span>
+	    	</div>
+	    	<span class="tfForm-eg tfForm-inline">tfForm-con > tfForm-checkbox  + tfForm-label + (checked) > for tfForm-checkbox-label + tfForm-checkbox-input</span>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<span class="tfForm-radio tfForm-join"><input id="radio1" type="radio" class="tfForm-radio-input" /><label for="radio1" class="tfForm-radio-label" ></label></span><label for="radio1" class="tfForm-label tfForm-join" >按时</label>
+				<span class="tfForm-radio tfForm-join checked"><input id="radio2" type="radio" class="tfForm-radio-input" /><label for="radio2" class="tfForm-radio-label" ></label></span><label for="radio2" class="tfForm-label tfForm-join" >按时</label>
+	    	</div>
+	    	<span class="tfForm-eg tfForm-inline">tfForm-con > tfForm-radio  + ( tfForm-join + (checked) >  input tfForm-radio-input + for tfForm-radio-label ) + tfForm-label tfForm-join</span>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con"><span class="tf-orange2 tf-title tf-font-num">119.00</span> 元<span class="tfForm-info">tf-orange2 tf-title tf-font-num</span></div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con"><span class="tf-orange2 tf-topic tf-font-num">119.00</span> 元<span class="tfForm-info">tf-orange2 tf-topic tf-font-num</span></div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con">
+	    		<textarea class="tf-textarea tf-focus-blue1 tf-longer tf-3D"><span class="tf-switch"><input class='tgl tgl-light' id='switch3' type='checkbox' checked="checked"><label class='tgl-btn' for='switch3'></label></span></textarea>
+	    		<span class="tfForm-info">tf-textarea tf-focus-blue1 tf-longer tf-3D</span>
+	    	</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con tf-buttons tfForm-options">
+	    		<a class="tf-hover tf-shorter tf-bg-orange2">清单</a>
+	    		<a class="tf-hover tf-shorter tf-orange2 tf-btn-orange2 ">清单</a>
+	    	</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con tf-buttons tfForm-options > a tf-hover tf-shorter tf-bg-orange2</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con tf-buttons tfForm-options > a tf-hover tf-shorter tf-orange2 tf-btn-orange2</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con tf-buttons tfForm-options">
+	    		<a class="tf-hover tf-shorter tf-bg-orange4">清单</a>
+	    		<a class="tf-hover tf-shorter tf-orange4 tf-btn-orange4 ">清单</a>
+	    	</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con tf-buttons tfForm-options > a tf-hover tf-shorter tf-bg-orange4</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con tf-buttons tfForm-options > a tf-hover tf-shorter tf-orange4 tf-btn-orange4</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con tfForm-buttons">
+	    		<a class="tf-btn-hover tf-shorter tf-square">清单</a>
+	    		<a class="tf-btn-hover tf-shorter tf-bg-brown2">清单</a>
+	    		<a class="tf-btn-hover tf-shorter tf-border-blue3 tf-blue3">清单</a>
+	    		<a class="tf-btn-hover tf-shorter tf-bg-green2">清单</a>
+	    		<a class="tf-btn-hover tf-shorter tf-bg-blue3">清单</a>
+	    	</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con tfForm-buttons > a tf-btn tf-shorter tf-square</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con tfForm-buttons > a tf-btn tf-shorter tf-bg-brown2</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con tfForm-buttons > a tf-btn tf-shorter tf-border-green2 tf-blue3</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con tfForm-buttons > a tf-btn tf-shorter tf-green2</div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con tfForm-buttons > a tf-btn tf-shorter tf-blue3</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con"><div class="tf-progress"><span class="tf-progress-bg"></span><span class="tf-progress-pct tf-bg-red3" style="width: 30%;"></span></div></div>
+	    	<div class="tfForm-eg tfForm-inline">tfForm-item > tfForm-con > tf-progress > tf-progress-bg + tf-progress-pct tf-bg-red3</div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con"><a class="tf-btn-hover tf-bg-orange2 tf-long">提交</a><span class="tfForm-info">tf-btn-hover tf-bg-orange1 tf-long</span></div>
+	    </div>
+	    <div class="tfForm-item">
+	    	<div class="tfForm-subject">标题tfForm-subject</div>
+	    	<div class="tfForm-con"><a class="tf-btn-hover tf-bg-orange1 tf-high tf-medium tf-3D">提交</a><span class="tfForm-info">tf-btn-hover tf-bg-orange1 tf-high tf-medium tf-3D</span></div>
+	    </div>
+	</form>
+	    
+	    
+	    
+	<form class="form" data-ng-submit="dqFn.callback('form', 'test', form1, vm.formData)" name="form1"  data-ng-init="vm.formData = {}">
+	    <div class="tfForm-item-full">
+	    	<div class="tfForm-subject">标题tfForm-item-full > tfForm-subject<span class="tfForm-fixed">固定tfForm-fixed</span><span class="tfForm-right">靠右tfForm-right</span></div>
+	    	<div class="tfForm-con"><input type="text" class="tf-input tf-focus-orange2 tf-3D" value="表单tfForm-item-full > tfForm-con" /></div>
+	    	<div class="tfForm-eg tf-red3">备注tfForm-item-full > tfForm-eg tf-red3<span class="tfForm-info">内容tfForm-info</span></div>
+	    </div>
+	    <div class="tfForm-item-full">
+	    	<div class="tfForm-subject">标题tfForm-item-full > tfForm-subject</div>
+	    	<div class="tfForm-con tf-inline">
+	    		<input type="text" class="tf-input tf-focus-orange2 tf-3D tf-two" value="内联一" />
+	    		<a class="tf-btn-hover tf-bg-blue1 tf-3D tf-inline tf-two">tfForm-item-full > tfForm-con + tf-inline > tf-two</a>
+	    	</div>
+	    	<div class="tfForm-con">
+	    		<input type="text" class="tf-input tf-focus-orange2 tf-3D tf-inline tf-inline-two" value="内联二" />
+	    		<a class="tf-btn-hover tf-bg-blue1 tf-3D tf-inline tf-inline-two">tfForm-item-full > tfForm-con > tf-inline tf-inline-two</a>
+	    	</div>
+	    	<div class="tfForm-text">tfForm-text</div>
+	    	<div class="tfForm-text">tfForm-text</div>
+	    </div>
+	    <div class=" tfForm-line"></div>
+	    
+	</form>
+	
+	
+	<div class="table" style="margin-bottom: 100px !important;">
+		<table class="dqTable dqTable-item tf-border-gray6" border="0" cellspacing="0" cellpadding="0" >
+			<tr class="tf-bg-orange2">
+				<th class="dqTable-subject">标题Header</th>
+				<th class="dqTable-subject">标题Header</th>
+				<th class="dqTable-subject">标题Header</th>
+				<th class="dqTable-subject">标题Header</th></tr>
+			<tr class="tf-bg-black3">
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+			</tr>
+			<tr class="tf-bg-gray5">
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="table" style="margin-bottom: 100px !important;">
+		<table class="dqTable tf-border-gray6" border="0" cellspacing="0" cellpadding="0" >
+			<tr class="tf-bg-white3">
+				<th class="dqTable-subject">标题Header</th>
+				<th class="dqTable-subject">标题Header</th>
+				<th class="dqTable-subject">标题Header</th>
+				<th class="dqTable-subject">标题Header</th></tr>
+			<tr class="">
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+			</tr>
+			<tr class="">
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="table" style="margin-bottom: 100px !important;">
+		<table class="dqTable dqTable-item tf-border-gray6" border="0" cellspacing="0" cellpadding="0" >
+			<tr class="tf-bg-white3">
+				<th class="dqTable-subject">标题Header</th>
+				<th class="dqTable-subject">标题Header</th>
+				<th class="dqTable-subject">标题Header</th>
+				<th class="dqTable-subject">标题Header</th></tr>
+			<tr class="">
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+			</tr>
+			<tr class="">
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+				<td class="dqTable-con">Data</td>
+			</tr>
+		</table>
+	</div>
+
+
+</body>
+</html>
+<script type="text/javascript">
+(function () {
+	var mainCtrl = function($scope, $timeout, $interval, $filter, $location, $http, $q, $window, apiFactory, dbFactory, fnService){
+		var api = $scope.api = apiFactory;
+		var db = $scope.db = dbFactory;
+		var fn = $scope.fn = fnService;
+		var vm = $scope.vm = {};
+
+		//console.log("MainCtrl Start");
+		
+		
+	}
+	
+	angular.module('app', ['ngFunc'])
+		.controller('mainCtrl', mainCtrl)
+}());
+</script>

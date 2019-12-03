@@ -1,0 +1,89 @@
+<div data-ng-class="elemCss.searchBox" data-ng-if="tableConfig.searchFn && tableConfig.searchElem">
+	<span data-ng-repeat="(x, obj) in tableConfig.searchElem">
+		<span data-ng-if="obj.subject"><span data-ng-bind="obj.subject"></span>:</span>
+		<input data-ng-if="!obj.select" type="text" data-ng-class="elemCss.short" placeholder="{{ obj.text }}" autocomplete="off" data-ng-model="tableConfig.searchObj[obj.name]" />
+		<select data-ng-if="obj.select" data-ng-class="elemCss.select" data-ng-model="tableConfig.searchObj[obj.name]" data-ng-options="opt.id as opt.name for opt in obj.select">
+			<option value="">{{ obj.text }}</option>
+		</select>
+		<span class="tf-help tf-help-shorter tf-help-icon" data-con="{{ obj.help }}" data-ng-if="obj.help"></span>
+		&nbsp;&nbsp;&nbsp;
+	</span>
+	<a data-ng-class="elemCss.btn" data-ng-click="tableConfig.searchFn(tableConfig.searchObj)" target="_self">Search</a>
+</div>
+<div data-ng-class="elemCss.choiceBtnBox" data-ng-if="(tableData && (tableConfig.choiceBtn || tableConfig.filter)) || tableConfig.searchFn && tableConfig.total > tableConfig.limit">
+	<a data-ng-class="obj.css || elemCss.btn" data-ng-repeat="(x, obj) in tableConfig.choiceBtn" data-ng-click="obj.fn(checkbox || [], tableConfig.objKeys, tableData)" target="_self">{{ obj.text }} </a>
+	<input data-ng-if="tableData && tableConfig.filter" type="text" data-ng-class="elemCss.filter || elemCss.short" placeholder="Filter" autocomplete="off" data-ng-model="tableConfig.filterValue" />
+</div>
+<div data-ng-class="elemCss.pageBox" data-ng-if="tableConfig.total">
+	<span data-ng-class="elemCss.pageRecord">Total records: <b data-ng-bind="tableConfig.total"></b> <span data-ng-if="tableConfig.totalPage > 1"> (<span data-ng-bind="tableConfig.page"></span>/<span data-ng-bind="tableConfig.totalPage"></span>)</span></span>
+	<span data-ng-class="elemCss.pageCtrl" data-ng-if="tableConfig.totalPage > 1">
+		<a data-ng-if="tableConfig.page > 1" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page - 1)" target="_self">Last</a>
+		<a data-ng-if="tableConfig.page - 5 > 1" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, 1)" target="_self">1</a>
+		<a data-ng-if="tableConfig.page - 5 >= 1" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page - 5)" target="_self" data-ng-bind="tableConfig.page - 5 == 1? 1: '...'"></a>
+		<a data-ng-if="tableConfig.page - 4 >= 1" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page - 4)" target="_self" data-ng-bind="tableConfig.page - 4"></a>
+		<a data-ng-if="tableConfig.page - 3 >= 1" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page - 3)" target="_self" data-ng-bind="tableConfig.page - 3"></a>
+		<a data-ng-if="tableConfig.page - 2 >= 1" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page - 2)" target="_self" data-ng-bind="tableConfig.page - 2"></a>
+		<a data-ng-if="tableConfig.page - 1 >= 1" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page - 1)" target="_self" data-ng-bind="tableConfig.page - 1"></a>
+		<span data-ng-bind="tableConfig.page"></span>
+		<a data-ng-if="tableConfig.page + 1 <= tableConfig.totalPage" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page + 1)" target="_self" data-ng-bind="tableConfig.page + 1"></a>
+		<a data-ng-if="tableConfig.page + 2 <= tableConfig.totalPage" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page + 2)" target="_self" data-ng-bind="tableConfig.page + 2"></a>
+		<a data-ng-if="tableConfig.page + 3 <= tableConfig.totalPage" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page + 3)" target="_self" data-ng-bind="tableConfig.page + 3"></a>
+		<a data-ng-if="tableConfig.page + 4 <= tableConfig.totalPage" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page + 4)" target="_self" data-ng-bind="tableConfig.page + 4"></a>
+		<a data-ng-if="tableConfig.page + 5 <= tableConfig.totalPage" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page + 5)" target="_self" data-ng-bind="tableConfig.page + 5 == tableConfig.totalPage? tableConfig.totalPage: '...'"></a>
+		<a data-ng-if="tableConfig.page + 5 < tableConfig.totalPage" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.totalPage)" target="_self" data-ng-bind="tableConfig.totalPage"></a>
+		<a data-ng-if="tableConfig.page < tableConfig.totalPage" data-ng-class="elemCss.pageNum" data-ng-click="tableConfig.searchFn(tableConfig.searchValue, tableConfig.page + 1)" target="_self">Next</a>
+	</span>
+</div>
+<table data-ng-class="elemCss.table" data-ng-init="fieldCount = (tableConfig.objField? tableConfig.objField.length:0) + (tableConfig.choiceBtn? 1: 0) + (tableConfig.listBtn? 1: 0)" border="0" cellspacing="0" cellpadding="0">
+	<colgroup>
+		<col data-ng-if="tableConfig.choiceBtn">
+		<col width="{{ obj.width }}" data-ng-repeat="(x, obj) in tableConfig.objField" data-ng-if="obj.elem != 'row'">
+		<col data-ng-if="tableConfig.listBtn">
+	</colgroup>
+  	<thead>
+  		<tr data-ng-class="elemCss.tableThTr">
+  			<th data-ng-class="elemCss.tableTh" data-ng-if="tableConfig.choiceBtn">
+  				<input type="checkbox" data-ng-class="elemCss.choice" data-ng-checked="checkboxAll" data-ng-click="choiceAll(tableData)">
+  			</th>  
+  			<th data-ng-class="elemCss.tableTh" data-ng-repeat="(x, obj) in tableConfig.objField" data-ng-if="display != 'row'">{{ obj.text }}<span class="tf-help tf-help-long tf-help-icon" data-con="{{ obj.help }}" data-ng-if="obj.help"></span></th>
+  			<th data-ng-class="elemCss.tableTh" data-ng-if="tableConfig.listBtn">Action</th>
+  		</tr> 
+	</thead>
+	<tbody>
+		<tr data-ng-if="!tableData || tableConfig.total == 0"><td colspan="{{ fieldCount }}" data-ng-bind="tableConfig.noDataMsg || 'No data'"></td></tr> 
+		<tr data-ng-if="!tableConfig.objField"><td colspan="{{ (tableConfig.choiceBtn? 1: 0) + (tableConfig.listBtn? 1: 0) }}">No object data</td></tr> 
+	  	<!--  勾选  TR1/3-->
+		<tr class="{{ elemCss.tableTr }}" data-ng-class="{'lineTr': tableConfig.lineTr && $parent.$even}" data-ng-repeat-start="(dataIndex, data) in tableData | filter: tableConfig.filterValue" data-ng-if="tableData && tableConfig.objField && !data.recordHide">
+		  <td data-ng-class="elemCss.tableTd" rowspan="1" data-ng-if="tableConfig.choiceBtn">
+		  	<input type="checkbox" data-ng-class="elemCss.choice" data-ng-checked="checkbox[dataIndex]" data-ng-click="checkbox[dataIndex] = checkbox[dataIndex]? false: true">
+		  </td>
+		  <td data-ng-class="elemCss.tableTd" data-ng-repeat="(x, obj) in tableConfig.objField" data-ng-if="obj.elem != 'row'" data-ng-init="dataValue = (before || '') + (obj.value? obj.value[data[obj.name]]: data[obj.name]) + (unit || '');  data['scope_' + obj.name] = dataValue">
+		  	<!-- text -->
+			<span data-ng-if="obj.elem == 'text'">{{ dataValue }}</span>
+			<!-- small -->
+			<span data-ng-class="elemCss.smallText" data-ng-if="obj.elem == 'small'">{{ dataValue }}</span>
+			<!-- light -->
+			<span data-ng-class="elemCss.lightText" data-ng-if="obj.elem == 'light'">{{ dataValue }}</span>
+			<!-- timestamp -->
+			<span data-ng-class="elemCss.normalText" data-ng-if="obj.elem == 'timestamp'">{{ dataValue | date: (obj.pattem || "yyyy-MM-dd HH:mm:ss") }}</span>
+			<!-- url -->
+			<a data-ng-class="elemCss.linkText" data-ng-if="obj.elem == 'url'" data-ng-href="{{ dataValue }}" target="_blank">{{ dataValue }}</a>
+			<!-- selfurl -->
+			<a data-ng-class="elemCss.linkText" data-ng-if="obj.elem == 'selfurl'" data-ng-href="{{ dataValue }}" target="_self">{{ dataValue }}</a>
+			<!-- password -->
+			<span data-ng-class="elemCss.normalText" data-ng-if="obj.elem == 'password'">{{ (dataValue | limitTo: 2) + '****' }}</span>
+			<!-- img -->
+			<img data-ng-class="elemCss.img" data-ng-if="obj.elem == 'img' && !imgzoom[dataIndex]" data-ng-click="imgzoom[dataIndex] = true" data-ng-src="{{ dataValue }}" />
+			<img data-ng-class="elemCss.imgzoom" data-ng-if="obj.elem == 'img' && imgzoom[dataIndex]" data-ng-click="imgzoom[dataIndex] = false" data-ng-src="{{ dataValue }}" />
+			<!-- fn -->
+			<a data-ng-class="elemCss.linkText" data-ng-click="obj.fn(dataIndex, tableConfig.objKeys, data, obj.name, dataValue)" data-ng-if="obj.fn" target="_self">{{ obj.fnText || dataValue }}</a>
+		  </td>
+		  <td data-ng-class="elemCss.tableTd" rowspan="1" data-ng-if="tableConfig.listBtn">
+		  	<a data-ng-class="obj.css || elemCss.minibtn" data-ng-repeat="(x, obj) in tableConfig.listBtn" data-ng-click="obj.fn(dataIndex, tableConfig.objKeys, data)" data-ng-if="!data.listBtnHide[obj.name]" target="_self" title="{{ obj.title || '' }}">{{ obj.text }}</a>
+		  </td>
+		</tr>
+		<tr class="{{ elemCss.tableTr }}" data-ng-class="{'lineTr': tableConfig.lineTr && $parent.$even}" data-ng-repeat="(x, obj) in tableConfig.objField" data-ng-if="obj.elem == 'row' && !data.recordHide" data-ng-repeat-end>
+		  <td colspan="{{ fieldCount }}" data-ng-class="elemCss.tableTd" data-ng-class="{'lineTd': $parent.$even}" >{{ dataValue }}</td>
+		</tr>
+	</tbody>
+</table>

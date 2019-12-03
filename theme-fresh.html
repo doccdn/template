@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="app" lang="zh-Hant-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS测试</title>
+<script src="https://cdn.jsdelivr.net/npm/angular@1.4.14/angular.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-func-3.01.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-func-3.01.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-tf-template-3.01.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-pattem-3.01.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-ajax-1.01.min.js"></script>-->
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-style-3.02.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-animation-3.01.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-icon-3.01.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-form-3.01.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-func-3.01.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Titillium+Web:300,400,600" rel="stylesheet">
+<style>
+body{ padding-left: 10px !important; padding-top: 50px !important; }
+.font{ margin-top: 0px !important; margin-bottom: 0px !important; width: 1900px !important;  }
+.font div{ display:inline-block; width: 33% !important; text-align: left; margin-top: 0px !important; margin-bottom: 6px !important; }
+.font span{ display:inline-block; width: 19%; text-align:center;  }
+.font p{ display:inline-block; width: 19% !important; text-align:left; padding-left: 0px; padding-right: 0px; font-size: 13px; }
+.font ul{ width:100%; text-align: left; margin-bottom: 6px;  }
+.font li{ display:inline-block;  line-height: 33px; width: 19%;  }
+.click:hover .tf-hide{ filter:alpha(opacity=100); opacity:1.0; -moz-opacity: 1.0; -o-opacity: 1.0; }
+.on:hover .tf-none{ display: block; }
+
+.div{ width: 1900px !important; margin:0 auto; padding-top:50px; padding-bottom:200px; }
+.textarea{ width: 800px; display:inline-block; height: 20000px; margin-right:20px; vertical-align:top; font-size:15px; }
+.con{ width:1600px !important; display:inline-block; height: 5000px; text-align:left; }
+.con div, .con p{ width:auto; margin-top: 6px; margin-bottom: 6px; }
+.text{ width:100px !important; height:16px; line-height:16px; display:inline-block; vertical-align:bottom; text-align:center; margin-right:3px; }
+.nav li{ width:98% !important; }
+.bg{ display:inline-block; background-color:#000;}
+</style>
+</head>
+<body class="tf-body" ng-controller="mainCtrl">
+&nbsp;&nbsp;
+<div class="con">
+<div class="tf-umbra" style=" width:300px; "><div style=" width:100%; height:50px;">这是一个标题 坚定不移将改革推向深入</div><div class="tf-bg-blue4" style=" width:100%; height:200px;">这是一个标题 坚定不移将改革推向深入</div><div style=" width:100%; height:50px;"></div></div>
+<br />
+<br />
+<div style="font-family:'Titillium Web'">这是数字 This is num. 1234567890 Titillium Web</div>
+<div style="font-family:'Open Sans'">这是数字 This is num. 1234567890 Open Sans</div>
+<br />
+<br />
+<div>这是body文字class="tf-body"</div>
+<div class="tf-font-light">这是数字 This is num. 1234567890 class="tf-font-light"</div>
+<div class="tf-font-num">这是数字 This is num. 1234567890 class="tf-font-num"</div>
+<div class="font">
+    <div class="tf-eg">这是一个标题 坚定不移将改革推向深入tf-eg</div><div class="tf-eg tf-thin">这是一个标题 坚定不移将改革推向深入tf-eg tf-thin</div><div class="tf-eg tf-strong">这是一个标题 坚定不移将改革推向深入tf-eg tf-strong</div>
+    <div class="tf-little">这是一个标题 坚定不移将改革推向深入tf-little</div><div class="tf-little tf-thin">这是一个标题 坚定不移将改革推向深入tf-little tf-thin</div><div class="tf-little tf-strong">这是一个标题 坚定不移将改革推向深入tf-little tf-strong</div>
+    <div class="tf-light">这是一个标题 坚定不移将改革推向深入tf-light</div><div class="tf-light tf-thin">这是一个标题 坚定不移将改革推向深入tf-light tf-thin</div><div class="tf-light tf-strong">这是一个标题 坚定不移将改革推向深入tf-light tf-strong</div>
+    <div class="tf-subject">这是一个标题 坚定不移将改革推向深入tf-subject</div><div class="tf-subject tf-thin">这是一个标题 坚定不移将改革推向深入tf-subject tf-thin</div><div class="tf-subject tf-strong">这是一个标题 坚定不移将改革推向深入tf-subject tf-strong</div>
+    <div class="tf-title">这是一个标题 坚定不移将改革推向深入tf-title</div><div class="tf-title tf-thin">这是一个标题 坚定不移将改革推向深入tf-title tf-thin</div><div class="tf-title tf-strong">这是一个标题 坚定不移将改革推向深入tf-title tf-strong</div>
+    <div class="tf-topic">这是一个标题 坚定不移将改革推向深入tf-topic</div><div class="tf-topic tf-thin">这是一个标题 坚定不移将改革推向深入tf-topic tf-thin</div><div class="tf-topic tf-strong">这是一个标题 坚定不移将改革推向深入tf-topic tf-strong</div>
+</div>
+<div class="font">
+	<div ><a ng-click="effect1 = effect1? false: true">点击效果tf-shake</a> <span style="background-color:#000; color: #FFF;" class="tf-shake" ng-show="!effect1">效果tf-shake</span></div>
+	<div ><a ng-click="effect2 = effect2? false: true">点击效果tf-zoom</a> <span style="background-color:#000; color: #FFF;" class="tf-zoom" ng-show="!effect2">效果tf-zoom</span></div>
+	<div ><a ng-click="effect3 = effect3? false: true">点击效果tf-fade</a> <span style="background-color:#000; color: #FFF;" class="tf-fade" ng-show="!effect3">效果tf-fade</span></div>
+	<div ><a ng-click="effect3 = effect4? false: true">点击效果tf-fade-out</a> <span style="background-color:#000; color: #FFF;" class="tf-fade-out" ng-show="!effect4">效果tf-fade-out</span></div>
+	<div ><a ng-click="effect4 = effect5? false: true">点击效果tf-round</a> <span style="background-color:#000; color: #FFF;" class="tf-round" ng-show="!effect5">效果tf-round</span></div>
+</div>
+<br /><br />
+<!--<div class="font">
+	<span class="tf-red1 tf-border-red1">颜色#ed5565 tf-red1 tf-border-red1</span><span style="background-color:#000" class="tf-red1">颜色 tf-red1</span><span  class="tf-bg-red1">颜色 tf-bg-red1</span><span><a class="tf-red1 tf-hover">连结tf-red1 tf-hover</a></span><span><a class="tf-black3 tf-hover-red1">连结tf-black3 tf-hover-red1</a></span>
+    
+    <span><input class="tf-input tf-focus-red1" value="表单tf-input tf-focus-red1" /></span><span><input class="tf-input tf-red1 tf-border-red1" value="表单tf-input tf-red1 tf-border-red1" /></span><span><a class="tf-btn-hover tf-bg-red1">按钮</a>tf-btn-hover tf-bg-red1</span><span><a class="tf-btn-hover tf-red1 tf-border-red1">按钮</a>tf-btn-hover tf-red1 tf-border-red1</span><span><a class="tf-btn tf-bg-gray1 tf-btn-red1">按钮</a>tf-btn tf-bg-gray1 tf-btn-red1</span>
+    
+    <ul><li class="tf-button tf-bg-red1 tf-btn-black4">tf-button tf-bg-red1 tf-btn-black4</li><li class="tf-button tf-bg-red1 tf-btn-black2">tf-button tf-bg-red1 tf-btn-black2</li><li class="tf-button tf-hover tf-bg-red1">tf-button tf-hover tf-bg-red1</li><li class="tf-button tf-hover tf-red1 tf-btn-red1">tf-button tf-hover tf-red1 tf-btn-red1</li></ul>
+    
+    <ul><li class="tf-button tf-btn-red1">tf-button tf-btn-red1</li><li class="tf-button tf-bg-gray6 tf-btn-red1">tf-button tf-bg-gray6 tf-btn-red1</li><li class="tf-button tf-bg-gray5 tf-btn-red1">tf-button tf-bg-gray5 tf-btn-red1</li><li class="tf-button tf-bg-black1 tf-btn-red1">tf-button tf-bg-black1 tf-btn-red1</li></ul>
+</div>-->
+<div class="font" ng-init="showColor= 1">
+	 <a ng-click="showColor = 0" class="tf-btn-hover tf-bg-orange1">全部关闭</a>
+	 <a ng-click="showColor = 1" class="tf-btn-hover tf-bg-orange1">文字背景颜色 展开</a>
+	 <a ng-click="showColor = 2" class="tf-btn-hover tf-bg-orange1">表单元件颜色 展开</a>
+	 <a ng-click="showColor = 3" class="tf-btn-hover tf-bg-orange1">导航按键颜色 展开</a>
+</div>
+<div class="font" ng-repeat="obj in vm.color" ng-show="showColor == 1">
+	<span style="line-height: 26px;" class="tf-{{ obj.name }} tf-border-{{ obj.name }}">颜色#{{ obj.code }} tf-{{ obj.name }} tf-border-{{ obj.name }}</span><span><a class="tf-{{ obj.name }} tf-hover">连结#{{ obj.code }} tf-{{ obj.name }} tf-hover</a></span><span><a class="tf-black3 tf-hover-{{ obj.name }}">连结#{{ obj.code }} tf-black3 tf-hover-{{ obj.name }}</a></span><span style="background-color:#000" class="tf-{{ obj.name }}">颜色#{{ obj.code }} tf-{{ obj.name }}</span><span  class="tf-bg-{{ obj.name }}">颜色#{{ obj.code }} tf-bg-{{ obj.name }}</span>
+</div>
+<div class="font" ng-repeat="obj in vm.color" ng-show="showColor == 2">
+    <span><input class="tf-input tf-focus-{{ obj.name }} tf-3D" value="表单tf-input tf-focus-{{ obj.name }} tf-3D" /></span><span><input class="tf-input tf-{{ obj.name }} tf-border-{{ obj.name }}" value="表单tf-input tf-{{ obj.name }} tf-border-{{ obj.name }}" /></span><p style="padding-left: 20px;"><a class="tf-btn-hover tf-bg-{{ obj.name }} tf-3D">按钮</a>tf-btn-hover tf-bg-{{ obj.name }}  tf-3D</p><p><a class="tf-btn-hover tf-{{ obj.name }} tf-border-{{ obj.name }}">按钮</a>tf-btn-hover tf-{{ obj.name }} tf-border-{{ obj.name }}</p><p><a class="tf-btn tf-bg-gray1 tf-btn-{{ obj.name }}">按钮</a>tf-btn tf-bg-gray1 tf-btn-{{ obj.name }}</p>
+</div>
+<div class="font" ng-repeat="obj in vm.color" ng-show="showColor == 3">
+    <ul><li class="tf-button tf-bg-{{ obj.name }} tf-btn-black4">tf-button tf-bg-{{ obj.name }} tf-btn-black4</li><li class="tf-button tf-bg-{{ obj.name }} tf-btn-black2">tf-button tf-bg-{{ obj.name }} tf-btn-black2</li><li class="tf-button tf-hover tf-bg-{{ obj.name }}">tf-button tf-hover tf-bg-{{ obj.name }}</li><li class="tf-button tf-hover tf-{{ obj.name }} tf-btn-{{ obj.name }}">tf-button tf-hover tf-{{ obj.name }} tf-btn-{{ obj.name }}</li></ul>
+</div>
+<div class="font" ng-repeat="obj in vm.color" ng-show="showColor == 3">
+    <ul><li class="tf-button tf-btn-{{ obj.name }} tf-{{ obj.name }}">tf-button tf-btn-{{ obj.name }} tf-{{ obj.name }}</li><li class="tf-button tf-bg-gray6 tf-btn-{{ obj.name }}">tf-button tf-bg-gray6 tf-btn-{{ obj.name }}</li><li class="tf-button tf-bg-gray5 tf-btn-{{ obj.name }}">tf-button tf-bg-gray5 tf-btn-{{ obj.name }}</li><li class="tf-button tf-bg-black1 tf-btn-{{ obj.name }}">tf-button tf-bg-black1 tf-btn-{{ obj.name }}</li></ul>
+</div>
+<div style="color:#f38107">測試顏色<div style="border: 1px  solid #f38107; " class="text" >#f38107</div><div style="background-color:#f38107; border: 0px;" class="text"></div><div class="bg"><div style="border: 1px  solid #f38107; color: #f38107 " class="text" >#f38107</div><div style="background-color:#f38107; border: 0px;" class="text"></div></div></div>
+<div style="color:#e74851">測試顏色<div style="border: 1px  solid #e74851; " class="text" >#e74851</div><div style="background-color:#e74851; border: 0px;" class="text"></div><div class="bg"><div style="border: 1px  solid #e74851; color: #e74851;" class="text" >#e74851</div><div style="background-color:#e74851; border: 0px;" class="text"></div></div></div>
+<div style="color:#F1BC78">測試顏色<div style="border: 1px  solid #F1BC78; " class="text" >#F1BC78</div><div style="background-color:#F1BC78; border: 0px;" class="text"></div><div class="bg"><div style="border: 1px  solid #F1BC78; color: #F1BC78" class="text" >#F1BC78</div><div style="background-color:#ffb15c; border: 0px;" class="text"></div></div></div>
+<br />
+<div class="font">
+	<span style="line-height: 50px;" class="tf-bg-grid">这是背景颜色 tf-bg-grid</span>
+	<span style="line-height: 50px;" class="tf-bg-white2">这是背景颜色 tf-bg-white2 #FBFBFB</span>
+	<span style="line-height: 50px;" class="tf-bg-white3">这是背景颜色 tf-bg-white3 #F8F8F8</span>
+	<span style="line-height: 50px;" class="tf-bg-black1">这是背景颜色 tf-bg-black1 #000</span>
+	<span style="line-height: 50px;" class="tf-bg-gray5">这是背景颜色 tf-bg-gray5 #393D49</span>
+	<span style="line-height: 50px;" class="tf-bg-brown2">这是背景颜色 tf-bg-brown2 #D9BB7E</span>
+	<span style="line-height: 50px;" class="tf-bg-gold3">这是背景颜色 tf-bg-gold3 #D6C375</span>
+	<span style="line-height: 50px;" class="tf-bg-blue3">这是背景颜色 tf-bg-blue3 #3577B0</span>
+	<span style="line-height: 50px;" class="tf-bg-red1">这是背景颜色 tf-bg-red1 #ed5565</span>
+	<span style="line-height: 50px;" class="tf-bg-orange2">这是背景颜色 tf-bg-orange2 #DE6D43</span>
+	<span style="line-height: 50px;" class="tf-bg-gold2">这是背景颜色 tf-bg-gold2 #FCDE8E</span>
+	<span style="line-height: 50px;" class="tf-bg-yellow1">这是背景颜色 tf-bg-yellow1 #FFFF99</span>
+	<span style="line-height: 50px;" class="tf-bg-yellow2">这是背景颜色 tf-bg-yellow2 #FCDB39</span>
+	<span style="line-height: 50px;" class="tf-bg-yellow3">这是背景颜色 tf-bg-yellow3 #FFFAF1</span>
+	<span style="line-height: 50px;" class="tf-bg-green1">这是背景颜色 tf-bg-green1 #009688</span>
+	<span style="line-height: 50px; background-color:#009688; color: #FFF; " >测试背景颜色 #009688</span>
+	<span style="line-height: 50px; background-color:#e74851; color: #FFF; " >测试背景颜色 #e74851</span>
+</div>
+<br />
+<div class="font">
+	<div><a class="tf-black3 tf-hover-gold3">连结tf-black3 tf-hover-gold3</a> #2e2e2e <span style="color: #D6C375">#D6C375</span></div>
+	<div><a class="tf-black3 tf-hover-gold1">连结tf-black3 tf-hover-gold1</a> #2e2e2e <span style="color: #E9BB49">#E9BB49</span></div>
+	<div><a class="tf-black3 tf-hover-gray1">连结tf-black3 tf-hover-gray1</a> #000 <span style="color: #999">#999</span></div>
+	<div><a class="tf-gray2 tf-hover-gray1">连结tf-gray2 tf-hover-gray1</a> #2F4056 <span style="color: #999">#999</span></div>
+	<div><a class="tf-black3 tf-hover-blue2 ">连结tf-black3 tf-hover-blue2 </a> #2e2e2e <span style="color: #2F4056">#2F4056</span></div>
+	<div><a class="tf-black3 tf-hover-red1">连结tf-black3 tf-hover-red1</a> #2e2e2e <span style="color: #ed5565">#ed5565</span></div>
+	<div class="tf-bg-black1"><a class="tf-white1 tf-hover-gray3">连结tf-white1 tf-hover-gray3</a> #fff <span style="color: #CCC">#CCC</span></div>
+	<div class="tf-bg-black1"><a class="tf-white2 tf-hover-gold2">连结tf-white2 tf-hover-gold2</a> #FBFBFB <span style="color: #FCDE8E">#FCDE8E</span></div>
+	<div class="tf-bg-black1"><a class="tf-white2 tf-hover-yellow1">连结tf-white2 tf-hover-yellow1</a> #FBFBFB <span style="color: #FFFF99">#FFFF99</span></div>
+	<div class="tf-bg-black1"><a class="tf-white2 tf-hover-blue2">连结tf-white2 tf-hover-blue2</a> #FBFBFB <span style="color: #1E9FFF">#1E9FFF</span></div>
+	<div class="tf-bg-black1"><a class="tf-white2 tf-hover-red1">连结tf-white2 tf-hover-red1</a> #FBFBFB <span style="color: #ed5565">#ed5565</span></div>
+	<div class="tf-bg-black1"><a class="tf-white2 tf-hover-orange3">连结tf-white2 tf-hover-orange3</a> #FBFBFB <span style="color: #ffb15c">#ffb15c</span></div>
+</div>
+<br /><br />
+<div class="font">
+	<div><a class="tf-btn tf-gray2 tf-border-gray2 tf-line-red1 tf-hover-red1">按钮</a> tf-btn tf-gray2 tf-border-gray2 tf-line-red1 tf-hover-red1</div>
+    <div><a class="tf-btn tf-gray2 tf-border-gray2 tf-line-orange2 tf-hover-orange2">按钮</a> tf-btn tf-gray2 tf-border-gray2 tf-line-orange2 tf-hover-orange2</div>
+    <div><a class="tf-btn tf-gray2 tf-border-gray2 tf-line-blue3 tf-hover-blue3">按钮</a> tf-btn tf-gray2 tf-border-gray2 tf-line-blue3 tf-hover-blue3</div>
+    <div><a class="tf-btn tf-gray2 tf-border-gray2 tf-line-brown1 tf-hover-brown1">按钮</a> tf-btn tf-gray2 tf-border-gray2 tf-line-brown1 tf-hover-brown1</div>
+</div>
+<br /><br />
+<div class="font">
+	<div><input type="text" class="tf-input tf-focus-orange2 tf-3D" value="常用 方型表单100% tf-input tf-focus-orange2 tf-3D" /></div>
+	<div><input type="text" class="tf-input tf-focus-blue1 tf-curve tf-medium tf-3D" value="常用 曲型表单" />  tf-input tf-focus-blue1 tf-curve tf-medium tf-3D</div>
+	<div><input type="text" class="tf-input tf-focus-orange2 tf-circle tf-long tf-3D" value="常用 圆型表单" />  tf-input tf-focus-orange2 tf-circle tf-long tf-3D</div>
+	<div><input type="text" class="tf-input tf-focus-orange2 tf-shortest tf-3D" value="短" /> tf-input tf-focus-orange2 tf-shortest tf-3D</div>
+	<div><input type="text" class="tf-input tf-focus-orange2 tf-shorter tf-3D" value="较短" /> tf-input tf-focus-orange2 tf-shorter tf-3D</div>
+	<div><input type="text" class="tf-input tf-focus-orange2 tf-short tf-3D" value="短型" /> tf-input tf-focus-orange2 tf-short tf-3D</div>
+	<div><input type="text" class="tf-input tf-focus-orange2 tf-medium tf-3D" value="中型" /> tf-input tf-focus-orange2 tf-medium tf-3D</div>
+	<div><input type="text" class="tf-input tf-focus-orange2 tf-long tf-3D" value="长型" /> tf-input tf-focus-orange2 tf-long tf-3D</div>
+	<div><input type="text" class="tf-input tf-focus-orange2 tf-longer tf-3D" value="较长型 tf-input tf-focus-orange2 tf-longer tf-3D" /></div>
+	<div><input type="text" class="tf-input tf-focus-orange2 tf-longest tf-3D" value="最长型 tf-input tf-focus-orange2 tf-longest tf-3D" /> </div>
+	<div><input type="text" class="tf-input tf-focus-orange2 tf-enough tf-3D" value="98%满型 tf-input tf-focus-orange2 tf-enough tf-3D" /></div>
+	<div></div>
+	<div><input type="text" class="tf-input tf-focus-blue1 tf-lowest tf-3D" value="最矮表单 tf-input tf-focus-blue1 tf-lowest tf-3D" /></div>
+	<div><input type="text" class="tf-input tf-focus-blue1 tf-lower tf-3D" value="较矮表单 tf-input tf-focus-blue1 tf-lower tf-3D" /></div>
+	<div><input type="text" class="tf-input tf-focus-blue1 tf-low tf-3D" value="矮表单 tf-input tf-focus-blue1 tf-low tf-3D" /></div>
+	<div><input type="text" class="tf-input tf-focus-blue1 tf-high tf-3D" value="高表单 tf-input tf-focus-blue1 tf-high tf-3D" /></div>
+	<div><input type="text" class="tf-input tf-focus-blue1 tf-higher tf-3D" value="较高表单 tf-input tf-focus-blue1 tf-higher tf-3D" /></div>
+	<div><input type="text" class="tf-input tf-focus-blue1 tf-highest tf-3D" value="最高表单 tf-input tf-focus-blue1 tf-highest tf-3D" /></div>
+</div><br />
+<div class="font">
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-square tf-3D">常用 方型按钮100%</a> tf-btn-hover tf-bg-blue1 tf-square tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-orange1 tf-medium tf-3D">常用 曲型按钮</a> tf-btn-hover tf-bg-orange1 tf-medium tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-circle tf-long tf-3D">常用 圆型按钮</a> tf-btn-hover tf-bg-blue1 tf-circle tf-long tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-shortest tf-3D">短</a> tf-btn-hover tf-bg-blue1 tf-shortest tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-shorter tf-3D">较短</a> tf-btn-hover tf-bg-blue1 tf-shorter tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-short tf-3D">短型</a> tf-btn-hover tf-bg-blue1 tf-short tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-medium tf-3D">中型</a> tf-btn-hover tf-bg-blue1 tf-medium tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-long tf-3D">长型</a> tf-btn-hover tf-bg-blue1 tf-long tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-longer tf-3D">较长型 tf-btn-hover tf-bg-blue1</a> tf-longer tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-longest tf-3D">超长型 tf-btn-hover tf-bg-blue1 tf-longest tf-3D</a> </div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-enough tf-3D">98%满型 tf-btn-hover tf-bg-blue1 tf-enough tf-3D</a></div>
+	<div></div>
+	<div><a class="tf-btn-hover tf-bg-orange1 tf-lowest tf-3D">最矮按钮</a> tf-btn-hover tf-bg-orange1 tf-lowest tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-orange1 tf-lower tf-3D">较矮按钮</a> tf-btn-hover tf-bg-orange1 tf-lower tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-orange1 tf-low tf-3D">矮按钮</a> tf-btn-hover tf-bg-orange1 tf-low tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-orange1 tf-high tf-3D">高按钮</a> tf-btn-hover tf-bg-orange1 tf-high tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-orange1 tf-higher tf-3D">较高按钮</a> tf-btn-hover tf-bg-orange1 tf-higher tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-orange1 tf-highest tf-3D">最高按钮</a> tf-btn-hover tf-bg-orange1 tf-highest tf-3D</div>
+</div><br />
+<div class="font">
+	<div><a class="tf-btn-hover tf-bg-brown1 tf-fit-mini tf-3D">自适应按钮1</a> tf-btn-hover tf-bg-brown1 tf-fit-mini tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-fit-small tf-3D">自适应按钮1</a> tf-btn-hover tf-bg-blue1 tf-fit-small tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-orange1 tf-fit-normal tf-3D">自适应按钮1</a> tf-btn-hover tf-bg-orange1 tf-fit-normal tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-brown1 tf-fit-large tf-3D">自适应按钮1</a> tf-btn-hover tf-bg-brown1 tf-fit-large tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-blue1 tf-fit-huge tf-3D">自适应按钮1</a> tf-btn-hover tf-bg-blue1 tf-fit-huge tf-3D</div>
+	<div><a class="tf-btn-hover tf-bg-orange1 tf-fit-giant tf-3D">自适应按钮1</a> tf-btn-hover tf-bg-orange1 tf-fit-giant tf-3D</div>
+</div><br />
+<p>
+	<span class="dqForm-checkbox"><label for="checkbox1" class="dqForm-checkbox-label" >按时</label><input id="checkbox1" type="checkbox" class="dqForm-checkbox-input" /></span>
+	<span class="dqForm-checkbox checked"><label for="checkbox1" class="dqForm-checkbox-label" >按时</label><input id="checkbox1" type="checkbox" class="dqForm-checkbox-input" /></span>
+	dqForm-checkbox  + (checked) > for dqForm-checkbox-label + dqForm-checkbox-input
+</p>
+<p>
+	<span class="dqForm-radio"><label for="radio6" class="dqForm-radio-label" >按时</label><input id="radio6" type="radio" class="dqForm-radio-input" /></span>
+	<span class="dqForm-radio checked"><label for="radio6" class="dqForm-radio-label" >按时</label><input id="radio6" type="radio" class="dqForm-radio-input" /></span>
+	dqForm-radio  + (checked) > for dqForm-radio-label + dqForm-radio-input
+</p>
+<div class="font">
+	<p><input id="checkbox2" type="checkbox" class="tf-checkbox tf-checkbox-smaller" /><label for="checkbox3" style="margin-right: 12px;">tf-checkbox tf-checkbox-smaller</label></p>
+	<p><input id="checkbox3" type="checkbox" class="tf-checkbox tf-checkbox-small" /><label for="checkbox3" style="margin-right: 12px;">tf-checkbox tf-checkbox-small</label></p>
+	<p><input id="checkbox4" type="checkbox" class="tf-checkbox" /><label for="checkbox4" style="margin-right: 12px;">tf-checkbox</label></p>
+	<p><input id="checkbox5" type="checkbox" class="tf-checkbox tf-checkbox-large" /><label for="checkbox5" style="margin-right: 12px;">tf-checkbox tf-checkbox-large</label></p>
+	<p><input id="checkbox6" type="checkbox" class="tf-checkbox tf-checkbox-larger" /><label for="checkbox6" style="margin-right: 12px;">tf-checkbox tf-checkbox-larger</label></p>
+</div>
+<div class="font">
+	<p><input id="radio1" type="radio" class="tf-radio tf-radio-smaller" /><label for="radio1" style="margin-right: 12px;">tf-radio tf-radio-smaller</label></p>
+	<p><input id="radio2" type="radio" class="tf-radio tf-radio-small" /><label for="radio2" style="margin-right: 12px;">tf-radio tf-radio-small</label></p>
+	<p><input id="radio3" type="radio" class="tf-radio" /><label for="radio3" style="margin-right: 12px;">tf-radio</label></p>
+	<p><input id="radio4" type="radio" class="tf-radio tf-radio-large" /><label for="radio4" style="margin-right: 12px;">tf-radio tf-radio-large</label></p>
+	<p><input id="radio5" type="radio" class="tf-radio tf-radio-larger" /><label for="radio5" style="margin-right: 12px;">tf-radio tf-radio-larger</label></p>
+</div><br />
+<div class="font">
+	<div><select class="tf-select tf-focus-orange2 tf-3D"><option value="tf-select"  selected = "selected">常用 选单100％</option></select> tf-select tf-focus-orange2 tf-3D</div>
+	<div><select class="tf-select tf-focus-blue1 tf-medium tf-3D"><option value="tf-select"  selected = "selected">常用 中型选单</option></select> tf-select tf-focus-blue1 tf-medium tf-3D
+		<br /><select class="tf-select tf-focus-blue1 tf-medium tf-curve tf-3D"><option value="tf-select"  selected = "selected">曲型选单</option></select> tf-select tf-focus-blue1 tf-medium tf-curve tf-3D</div>
+	<div><select class="tf-select tf-focus-blue1 tf-long tf-3D"><option value="tf-select"  selected = "selected">常用 长型选单</option></select> tf-select tf-focus-blue1 tf-long tf-3D
+		<br /><select class="tf-select tf-focus-blue1 tf-medium tf-circle tf-3D"><option value="tf-select"  selected = "selected">圆型选单</option></select> tf-select tf-focus-blue1 tf-medium tf-circle tf-3D</div>
+</div><br />
+<div class="font">
+	<div><textarea class="tf-textarea tf-focus-orange2 tf-long tf-3D">常用 表单 tf-textarea tf-focus-orange2 tf-long tf-3D</textarea></div>
+	<div><textarea class="tf-textarea tf-focus-blue1 tf-longer tf-textarea-low tf-3D">常用 表单 tf-textarea tf-focus-blue1 tf-longer tf-textarea-low tf-3D</textarea></div>
+	<div><textarea class="tf-textarea tf-focus-orange2 tf-textarea-lower tf-3D">较矮表单tf-textarea tf-focus-orange2 tf-textarea-lower tf-3D</textarea></div>
+	<div><textarea class="tf-textarea tf-focus-blue1 tf-textarea-low tf-3D">矮表单tf-textarea tf-focus-blue1 tf-textarea-low tf-3D</textarea></div>
+	<div><textarea class="tf-textarea tf-focus-blue1 tf-textarea-high tf-3D">高表单tf-textarea tf-focus-blue1 tf-textarea-high tf-3D</textarea></div>
+	<div><textarea class="tf-textarea tf-focus-blue1 tf-textarea-higher tf-3D">较高表单tf-textarea tf-focus-blue1 tf-textarea-higher tf-3D</textarea></div>
+</div><br />
+<br />
+<p><div class="tf-progress" style="width: 400px; float: left; "><span class="tf-progress-bg"></span><span class="tf-progress-pct tf-bg-orange2" style="width: 30%;"></span></div> tf-progress(预设38px高) > tf-progress-bg + tf-progress-pct tf-bg-orange2</p>
+<br />
+<p>tf-switch<span class="tf-switch"><input class='tgl tgl-light' id='switch101' type='checkbox' checked="checked"><label class='tgl-btn' for='switch101'></label></span>tf-switch-red<span class="tf-switch tf-switch-red"><input class='tgl tgl-light' id='switch102' type='checkbox' checked="checked"><label class='tgl-btn' for='switch102'></label></span></p>
+<br />
+<div><ul class="tf-inline tf-border-black1" style="width: 800px; display: inline-block;"><li class="tf-one tf-btn-hover tf-bg-blue1">分布</li></ul> ul分布 tf-inline > tf-one / 单独分布tf-inline(可選) tf-inline-one</div>
+<div><ul class="tf-inline tf-border-black1" style="width: 800px; display: inline-block;"><li class="tf-ten tf-btn-hover tf-bg-blue1">分布</li><li class="tf-ten tf-btn-hover tf-bg-blue1">分布</li><li class="tf-ten tf-btn-hover tf-bg-blue1">分布</li><li class="tf-ten tf-btn-hover tf-bg-blue1">分布</li><li class="tf-ten tf-btn-hover tf-bg-blue1">分布</li><li class="tf-ten tf-btn-hover tf-bg-blue1">分布</li><li class="tf-ten tf-btn-hover tf-bg-blue1">分布</li><li class="tf-ten tf-btn-hover tf-bg-blue1">分布</li><li class="tf-ten tf-btn-hover tf-bg-blue1">分布</li><li class="tf-ten tf-btn-hover tf-bg-blue1">分布</li></ul> ul分布 tf-inline > tf-ten / 单独分布tf-inline(可選) tf-inline-ten</div>
+<div><ul class="tf-inline tf-border-black1" style="width: 800px; display: inline-block;"><li class="tf-half1 tf-btn-hover tf-bg-blue1">分布</li><li class="tf-half2 tf-btn-hover tf-bg-blue1">分布</li></ul> ul分布 tf-inline > tf-half1 或 tf-half2 / 单独分布tf-inline(可選) tf-inline-half1  或 tf-inline-half2</div>
+<div><ul class="tf-inline tf-border-black1" style="width: 800px; display: inline-block;"><li class="tf-half1 tf-btn-hover tf-bg-blue1">分布</li><li class="tf-half1 tf-btn-hover tf-bg-blue1">分布</li></ul> ul分布 tf-inline > 全tf-half1  / 单独分布tf-inline(可選) 全tf-inline-half1 </div>
+<br />
+.tf-mini{ font-size:8px !important; }<br />
+.tf-small{ font-size:12px !important; }<br />
+.tf-normal{ font-size:15px !important; }<br />
+.tf-large{ font-size:16px !important; }<br />
+.tf-huge{ font-size:18px !important;}<br />
+.tf-giant{ font-size:22px !important; }<br />
+.tf-mini-row{ font-size:8px; line-height: 22px; width:100%; }<br />
+.tf-small-row{ font-size:12px; line-height: 28px; width:100%; }<br />
+.tf-normal-row{ font-size:15px; line-height: 28px; width:100%; }<br />
+.tf-large-row{ font-size:16px; line-height: 28px; width:100%; }<br />
+.tf-huge-row{ font-size:18px; line-height: 34px; width:100%; }<br />
+.tf-giant-row{ font-size:22px; line-height: 40px; width:100%; }<br />
+<br />
+.tf-row-18{ width:100%; height: 18px; line-height: 18px; }<br />
+.tf-row-22{ width:100%; height: 22px; line-height: 22px; }<br />
+.tf-row-28{ width:100%; height: 28px; line-height: 28px; }<br />
+.tf-row-34{ width:100%; height: 34px; line-height: 34px; }<br />
+.tf-row-40{ width:100%; height: 40px; line-height: 40px; }<br />
+.tf-row-50{ width:100%; height: 50px; line-height: 50px; }<br />
+<br />
+.tf-width-90{ width:90%; margin-left:5%; }<br />
+.tf-width-80{ width:80%; margin-left:10%; }<br />
+<br />
+.tf-m-top-6{ margin-top: 6px; }<br />
+.tf-m-top-12{ margin-top: 12px; }<br />
+.tf-m-top-18{ margin-top: 18px; }<br />
+.tf-m-top-24{ margin-top: 24px; }<br />
+.tf-m-down-6{ margin-bottom: 6px; }<br />
+.tf-m-down-12{ margin-bottom: 12px; }<br />
+.tf-m-down-18{ margin-bottom: 18px; }<br />
+.tf-m-down-24{ margin-bottom: 24px; }<br />
+<br />
+.tf-p-height-6{ padding-top:6px; padding-bottom:6px; }<br />
+.tf-p-height-12{ padding-top:12px; padding-bottom:12px; }<br />
+.tf-p-height-18{ padding-top:18px; padding-bottom:18px; }<br />
+<br />
+.tf-p-left-6{ text-align:left; padding-left: 6px; }<br />
+.tf-p-left-12{ text-align:left; padding-left: 12px;}<br />
+.tf-p-left-18{ text-align:left; padding-left: 18px;}<br />
+.tf-p-left-24{ text-align:left; padding-left: 24px;}<br />
+<br />
+.tf-italic{ font-style:italic; }<br />
+.tf-bg-grid{ background: url(http://cn.doccdn.com/images/bg-grid.jpg) repeat center center; } /* 格子背景 */<br />
+.tf-font-num{ font-family: -apple-system, 'Microsoft JhengHei', 'Helvetica', 'Lucida Sans', 'Microsoft YaHei', 'Arial', sans-serif; letter-spacing: normal !important; }<br />
+.tf-middle{ display:block !important; float:none !important; margin:0 auto !important; text-align:center;}<br />
+.tf-center, .tf-center-table th, .tf-center-table td, .tf-center-tr th, .tf-center-tr td, .tf-center-dl dt, .tf-center-dl dd, .tf-center-ul li{ text-align: center; padding-left: 0px; padding-right: 0px; }<br />
+.tf-left, .tf-left-table th, .tf-left-table td, .tf-left-tr th, .tf-left-tr td, .tf-left-dl dt, .tf-left-dl dd, .tf-left-ul li{ text-align: left; padding-left: 8px; }<br />
+.tf-right, .tf-right-table th, .tf-right-table td, .tf-right-tr th, .tf-right-tr td, .tf-right-dl dt, .tf-right-dl dd, .tf-right-ul li{ text-align: right; padding-right: 8px; }<br />
+.tf-cover{ width:100%; height:100%; position:fixed; top:0px; left:0px; z-index:20000; background-color:#000; filter:alpha(opacity=30); opacity: 0.3; -moz-opacity: 0.3; -o-opacity: 0.3; }<br />
+.tf-cover-black{ width:100%; height:100%; position:fixed; top:0px; left:0px; z-index:20000; background-color:#000; filter:alpha(opacity=70); opacity: 0.7; -moz-opacity: 0.7; -o-opacity: 0.7; }<br />
+.tf-none, .tf-hidden{ display: none; }<br />
+.tf-block, .tf-active{ display: block; }<br />
+.tf-hide{ filter:alpha(opacity=0); opacity:0.0; -moz-opacity: 0.0; -o-opacity: 0.0; -webkit-opacity: 0.0; }<br />
+.tf-show{ filter:alpha(opacity=100); opacity:1.0; -moz-opacity: 1.0; -o-opacity: 1.0; -webkit-opacity: 1.0; }<br />
+.tf-shadow{ box-shadow: 4px 4px 20px rgba(102, 102, 102, 0.3); -webkit-box-shadow: 4px 4px 20px rgba(102, 102, 102, 0.3); -ms-box-shadow: 4px 4px 20px rgba(102, 102, 102, 0.3); -moz-box-shadow: 4px 4px 20px rgba(102, 102, 102, 0.3); -o-box-shadow: 4px 4px 20px rgba(102, 102, 102, 0.3);}<br />
+.tf-3D{ box-shadow: 2px 2px 10px rgba(102, 102, 102, 0.3); -webkit-box-shadow: 2px 2px 10px rgba(102, 102, 102, 0.3); -ms-box-shadow: 2px 2px 10px rgba(102, 102, 102, 0.3); -moz-box-shadow: 2px 2px 10px rgba(102, 102, 102, 0.3); -o-box-shadow: 2px 2px 10px rgba(102, 102, 102, 0.3);} <br />
+.tf-transition{ transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; -ms-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -o-transition: all 0.3s ease 0s; }<br />
+.tf-flex{ dispaly: flex; display: -webkit-flex; display: -ms-flex; display: -moz-flex; display: -o-flex; } /* 平均布局*/ <br />
+.tf-full{ float:left; overflow:hidden; width: 100%; margin: 0px auto !important; padding-left: 0px !important; padding-right: 0px !important; box-sizing: border-box; -o-ms-sizing: border-box;  -moz-box-sizing: border-box; <br />-webkit-box-sizing: border-box; -o-box-sizing: border-box; }<br />
+.tf-bright{ filter: brightness(110%); -moz-filter: brightness(110%); -ms-filter: brightness(110%); -webkit-filter: brightness(110%); -o-filter: brightness(110%); }<br />
+.tf-box-sizing{ box-sizing: border-box; -o-ms-sizing: border-box;  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box; }<br />
+<br />
+<div class="tf-caption tf-caption1"><span class="tf-caption-text">这是一个标题tf-caption tf-caption1 > tf-caption-text</span></div>
+<div class="tf-caption tf-caption1 tf-border-orange2"><span class="tf-caption-text tf-orange2">这是一个标题tf-caption tf-caption1 tf-border-orange2 > tf-caption-text tf-orange2</span></div>
+<div class="tf-caption tf-caption2 tf-border-orange2"><span class="tf-caption-text tf-orange2">这是一个标题tf-caption tf-caption2 tf-border-orange2 > tf-caption-text tf-orange2</span></div>
+<div class="tf-caption tf-caption2 tf-center"><span class="tf-caption-text">这是一个标题tf-caption tf-caption2 tf-center > tf-caption-text</span></div>
+<div class="tf-caption tf-caption3"><span class="tf-caption-text">这是一个标题tf-caption tf-caption3 > tf-caption-text</span></div>
+<div class="tf-caption tf-caption3 tf-border-orange2"><span class="tf-caption-text tf-orange2">这是一个标题tf-caption tf-caption3 tf-border-orange2> tf-caption-text tf-orange2</span></div>
+<div class="tf-caption tf-caption4 tf-bg-white1 tf-border-blue1"><span class="tf-caption-text tf-blue1">这是一个标题 tf-caption tf-caption4 tf-bg-white1 tf-border-blue1 > tf-caption-text tf-blue1</span></div>
+<div class="tf-caption tf-caption5 tf-bg-white1 tf-border-orange2"><span class="tf-caption-text tf-orange2">这是一个标题 tf-caption tf-caption5 tf-bg-white1 tf-border-orange2 > tf-caption-text tf-orange2</span></div>
+<div class="tf-caption tf-caption6 tf-bg-white1 tf-border-black3"><span class="tf-caption-text">这是一个标题tf-caption tf-caption6 tf-bg-white1 tf-border-black3 > tf-caption-text</span></div>
+<div class="tf-caption tf-caption6 tf-bg-white1 tf-border-black3"><span class="tf-caption-text">这是一个标题tf-caption tf-caption6 tf-bg-white1 tf-border-black3 > tf-caption-text</span></div>
+<div class="tf-caption tf-caption7 tf-bg-gold4"><span class="tf-caption-text">这是一个标题tf-caption tf-caption7 tf-bg-gold4 > tf-caption-text</span></div>
+<div class="tf-caption tf-caption8"><span class="tf-caption-text tf-bg-gold4">这是一个标题tf-caption tf-caption8 > tf-caption-text tf-bg-gold4</span></div>
+<div class="tf-caption tf-caption9"><span class="tf-caption-text tf-bg-gold4">这是一个标题tf-caption tf-caption9 > tf-caption-text tf-bg-gold4</span></div>
+
+<div class="tf-title"><i class="tf-title-icon1"></i>这是一个标题 tf-title >  i tf-title-icon1</div>
+<div class="tf-subject tf-orange2"><i class="tf-title-icon2 tf-bg-orange2"></i>这是一个标题 tf-subject tf-orange2 > i tf-title-icon2 tf-bg-orange2</div>
+<div><i class="tf-title-icon2 tf-bg-blue1"></i>这是一个标题 i tf-title-icon2 tf-bg-blue1</div>
+<div><i class="tf-title-icon3 tf-bg-blue1"></i>这是一个标题 i tf-title-icon3 tf-bg-blue1</div>
+<br />
+<br />
+<p class="tf-mini-row">tf-switch-mini开关按钮<span class="tf-switch tf-switch-mini"><input class='tgl tgl-light' id='switch1' type='checkbox' checked="checked"><label class='tgl-btn' for='switch1'></label></span><input type="text" class="tf-input tf-long"  /></p>
+<p class="tf-small-row">tf-switch-small开关按钮<span class="tf-switch tf-switch-small"><input class='tgl tgl-light' id='switch2' type='checkbox' checked="checked"><label class='tgl-btn' for='switch2'></label></span><input type="text" class="tf-input tf-long"  /></p>
+<p class="tf-normal-row">tf-switch开关按钮<span class="tf-switch"><input class='tgl tgl-light' id='switch3' type='checkbox' checked="checked"><label class='tgl-btn' for='switch3'></label></span><input type="text" class="tf-input tf-long"  /></p>
+<p class="tf-large-row">tf-switch-large开关按钮<span class="tf-switch tf-switch-large"><input class='tgl tgl-light' id='switch4' type='checkbox' checked="checked"><label class='tgl-btn' for='switch4'></label></span><input type="text" class="tf-input tf-long"  /></p>
+<p class="tf-huge-row">tf-switch-huge开关按钮<span class="tf-switch tf-switch-huge"><input class='tgl tgl-light' id='switch5' type='checkbox' checked="checked"><label class='tgl-btn' for='switch5'></label></span><input type="text" class="tf-input tf-long"  /></p>
+<br />
+<div class="on">tf-loading读取中tf-loading1<span class="tf-loading tf-loading1 tf-none"></span></div>
+<div class="on">tf-loading读取中tf-loading2 + tf-loading-bg<span class="tf-loading tf-loading2 tf-loading-bg tf-none"><span class="tf-cover"></span></span></div>
+<br />
+<div class="click">tf-system系统讯息<div class="tf-system tf-hide"><span><i class="tf-icon-success"></i>主題主題主題主題主題主題主題主題主題主題</span></div></div>
+<div class="on">tf-system-top tf-shake系统讯息<div class="tf-system tf-system-top tf-shake tf-none"><span><i class="tf-icon-wrong"></i>主題主題主題主題主題主題主題主題主題主題</span></div></div>
+<br />
+<div class="on">tf-msg讯息框tf-msg-white<div class="tf-msg tf-msg-small tf-none"><div class="tf-cover"></div><span class="tf-msg-top">主題<a class="tf-msg-close">X</a></span><span class="tf-msg-con tf-msg-white"><i class="tf-icon-success"></i>主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題</span><span class="tf-msg-bottom"><a class="tf-btn tf-btn-blue1">确认</a><a class="tf-btn">取消</a></span></div></div>
+<div class="on">tf-msg讯息框tf-msg-blue<div class="tf-msg tf-msg-small tf-none"><div class="tf-cover"></div><span class="tf-msg-con tf-msg-blue">主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題<a class="tf-msg-close">X</a></span><span class="tf-msg-bottom"><a class="tf-btn tf-btn-blue1">确认</a><a class="tf-btn">取消</a></span></div></div>
+<div class="on">tf-msg讯息框tf-msg-black + tf-msg-cover<div class="tf-msg tf-msg-small tf-none"><div class="tf-cover"></div><span class="tf-msg-con tf-msg-black tf-msg-cover"><a class="tf-msg-close">X</a>主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題主題</span></div></div>
+<br />
+<br />
+<div>tf-star星星<a class="tf-star"></a><a class="tf-star"></a><a class="tf-star"></a></div>
+<div>tf-star tf-star-off星星<a class="tf-star tf-star-off"></a><a class="tf-star tf-star-off"></a><a class="tf-star tf-star-off"></a></div>
+<br />
+<p class="tf-normal-row"><i class="tf-icon-success"></i>图示tf-icon-success</p>
+<p class="tf-normal-row"><i class="tf-icon-fail"></i>图示tf-icon-fail</p>
+<p class="tf-normal-row"><i class="tf-icon-tips"></i>图示tf-icon-tips</p>
+<p class="tf-normal-row"><i class="tf-icon-wait"></i>图示tf-icon-wait</p>
+<p class="tf-normal-row"><i class="tf-icon-correct"></i>图示tf-icon-correct</p>
+<p class="tf-normal-row"><i class="tf-icon-wrong"></i>图示tf-icon-wrong</p>
+<br />
+<p class="tf-normal-row"><i class="tf-icon-success tf-icon-mini"></i>图示tf-icon-mini</p>
+<p class="tf-normal-row"><i class="tf-icon-success tf-icon-small"></i>图示tf-icon-small</p>
+<p class="tf-normal-row"><i class="tf-icon-success"></i>图示</p>
+<p class="tf-normal-row"><i class="tf-icon-success tf-icon-large"></i>图示tf-icon-large</p>
+<p class="tf-normal-row"><i class="tf-icon-success tf-icon-huge"></i>图示tf-icon-huge</p>
+<p class="tf-normal-row"><i class="tf-icon-success tf-icon-giant"></i>图示tf-icon-giant</p>
+<p class="tf-normal-row"><i class="tf-icon-success tf-icon-img"></i>图示tf-icon-img</p>
+<br />
+<p class="tf-normal-row"><span class="tf-more">tf-more-down箭头<i class="tf-more-down"></i></span></p>
+<p class="tf-normal-row"><span class="tf-more">tf-more-up箭头<i class="tf-more-up"></i></span></p>
+<br />
+<p class="tf-small-row"><i class="tf-dot tf-dot-small"></i>点tf-dot-small<i class="tf-dot tf-dot-circle tf-dot-small"></i>tf-dot-circle</p>
+<p class="tf-normal-row"><i class="tf-dot"></i>点tf-dot<i class="tf-dot tf-dot-circle"></i>tf-dot-circle</p>
+<p class="tf-large-row"><i class="tf-dot tf-dot-large"></i>点tf-dot-large<i class="tf-dot tf-dot-circle tf-dot-large"></i>tf-dot-circle</p>
+<p class="tf-huge-row"><i class="tf-dot tf-dot-huge"></i>点tf-dot-huge<i class="tf-dot tf-dot-circle tf-dot-huge"></i>tf-dot-circle</p>
+<p class="tf-giant-row"><i class="tf-dot tf-dot-giant"></i>点tf-dot-giant<i class="tf-dot tf-dot-circle tf-dot-giant"></i>tf-dot-circle</p>
+<br />
+<p class="tf-mini-row"><i class="tf-ring tf-ring-mini"></i>点tf-ring-mini</p>
+<p class="tf-small-row"><i class="tf-ring tf-ring-small"></i>点tf-ring-small</p>
+<p class="tf-normal-row"><i class="tf-ring"></i>点tf-ring</p>
+<p class="tf-large-row"><i class="tf-ring tf-ring-large"></i>点tf-ring-large</p>
+<p class="tf-huge-row"><i class="tf-ring tf-ring-huge"></i>点tf-ring-huge</p>
+<p class="tf-giant-row"><i class="tf-ring tf-ring-giant"></i>点tf-ring-giant</p>
+<br />
+<p class="tf-mini-row"><i class="tf-load tf-load-mini"></i>读取图示tf-load-mini</p>
+<p class="tf-small-row"><i class="tf-load tf-icon-small"></i>读取图示tf-load-small</p>
+<p class="tf-normal-row"><i class="tf-load"></i>读取图示</p>
+<p class="tf-large-row"><i class="tf-load tf-load-large"></i>读取图示tf-load-large</p>
+<p class="tf-huge-row"><i class="tf-load tf-load-huge"></i>读取图示tf-load-huge</p>
+<p class="tf-giant-row"><i class="tf-load tf-load-giant"></i>读取图示tf-load-giant</p>
+<p class="tf-giant-row"><i class="tf-load tf-load-img"></i>读取图示tf-load-img</p>
+<br />
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help tf-help-icon" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help tf-help-icon + data-con + 文字内</div>
+<div style="width:600px; line-height:28px; height:28px">这是标题<span class="tf-help tf-help-icon" data-con="《热门排行》本周主播点击热度首十五名"></span> tf-help tf-help-icon + data-con + 文字外</div>
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help tf-help-white" data-con="《热门排行》本周主播点击热度首十五名本周主播点击热度首十五名本周主播点击热度首十五名本周主播点击热度首十五名">这是标题</span> tf-help tf-help-white + data-con</div>
+<br />
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help tf-help-top" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help tf-help-top + data-con</div>
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help  + data-con</div>
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help tf-help-bottom" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help tf-help-bottom + data-con</div>
+<div style="width:600px; line-height:28px; height:28px">tf-help tf-help-top tf-help-left + data-con<span class="tf-help tf-help-top tf-help-left" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span></div>
+<div style="width:600px; line-height:28px; height:28px">tf-help tf-help-left + data-con<span class="tf-help tf-help-left" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span></div>
+<div style="width:600px; line-height:28px; height:28px">tf-help tf-help-bottomtf-help-left + data-con<span class="tf-help tf-help-bottom tf-help-left" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span></div>
+<br />
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help tf-help-shortest" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help tf-help-shortest + data-con</div>
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help tf-help-shorter" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help tf-help-shorter + data-con</div>
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help tf-help-short" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help tf-help-short + data-con</div>
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help  + data-con</div>
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help tf-help-long" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help tf-help-long + data-con</div>
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help tf-help-longer" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help tf-help-longer + data-con</div>
+<div style="width:600px; line-height:28px; height:28px"><span class="tf-help tf-help-longest" data-con="《热门排行》本周主播点击热度首十五名">这是标题</span> tf-help tf-help-longest+ data-con</div>
+<br />
+<div style="padding-bottom:10px; width:600px; ">
+<dl class="tf-time-dl">
+	<dt class="tf-huge-row">8月3日</dt>
+    <dd><ul><li>这是一句内容</li><li>这是一句内容</li></ul></dd>
+    <dt class="tf-huge-row">8月3日</dt>
+    <dd>这是一句内容</dd>
+    <dt>过去</dt>
+</dl>
+</div>
+<br />
+<div style="padding-bottom:10px; width:600px; ">
+<dl class="tf-time-dl tf-time-red">
+	<dt class="tf-huge-row tf-strong">8月3日</dt>
+    <dd>这是一句内容</dd>
+    <dt>过去</dt>
+</dl>
+</div>
+<br />
+<div style="padding-bottom:10px; width:600px; ">
+<dl class="tf-time-dl tf-time-blue">
+	<dt class="tf-huge-row">8月3日</dt>
+    <dd>这是一句内容</dd>
+    <dt>过去</dt>
+</dl>
+</div>
+<br />
+<div style="padding-bottom:10px; width:600px; ">
+<dl class="tf-time-dl tf-time-green">
+	<dt class="tf-huge-row">8月3日</dt>
+    <dd>这是一句内容</dd>
+    <dt>过去</dt>
+</dl>
+</div>
+<br />
+<div style="padding-bottom:10px; width:600px; ">
+<dl class="tf-time-dl tf-time-brown">
+	<dt>这是一句内容</dt>
+    <dd></dd>
+    <dt>这是一句内容</dt>
+</dl>
+</div>
+<br />
+<div style="padding-bottom:10px; width:600px; ">
+<dl class="tf-time-dl tf-time-orange">
+	<dt>这是一句内容</dt>
+    <dd></dd>
+    <dt>这是一句内容</dt>
+</dl>
+</div>
+<br />
+<div style="padding-bottom:10px; width:600px; ">
+<dl class="tf-time-dl tf-time-gold">
+	<dt>这是一句内容</dt>
+    <dd></dd>
+    <dt>这是一句内容</dt>
+</dl>
+</div>
+<br />
+<!--
+<div class="on"><div class="tf-cover tf-none"></div><div class="tf-msg tf-msg-small tf-none"><span class="tf-msg-top">主題</span><span class="tf-msg-con tf-msg-white">
+<ul class="tf-ul"><li><i class="tf-load"></i>上传图片test1.jpg</li><li><i class="tf-load"></i>上传图片test1.jpg</li><li><i class="tf-load"></i>上传图片test1.jpg</li><li><i class="tf-load"></i>上传图片test1.jpg</li><li><i class="tf-load"></i>上传图片test1.jpg</li></ul>
+</span></div></div>
+
+
+
+
+<p>=======</p>
+
+<br />
+<br />
+<br />-->
+</div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+(function () {
+	var mainCtrl = function($scope, $timeout, $interval, $filter, $location, $http, $q, $window, apiFactory, dbFactory, fnService){
+		var api = $scope.api = apiFactory;
+		var db = $scope.db = dbFactory;
+		var fn = $scope.fn = fnService;
+		var vm = $scope.vm = {};
+
+		console.log("MainCtrl Start");
+		
+		vm.color = [
+			{name: "red1", code: "ed5565"}
+			, { name: "red2", code: "FF5722"}
+			, { name: "red3", code: "e74851"}
+			, { name: "red4", code: "771B24"}
+			, { name: "red5", code: "A24D52"}
+			, { name: "blue1", code: "1E68A7"}
+			, { name: "blue2", code: "1E9FFF"}
+			, { name: "blue3", code: "3577B0"}
+			, { name: "blue4", code: "393D49"}
+			, { name: "blue5", code: "239ca5"}
+			, { name: "gold1", code: "E9BB49"}
+			, { name: "gold2", code: "FCDE8E"}
+			, { name: "gold3", code: "D6C375"}
+			, { name: "gold4", code: "a7a32a"}
+			, { name: "gold5", code: "c1a831"}
+			, { name: "gold6", code: "D8BA7E"}
+			, { name: "green1", code: "009688"}
+			, { name: "green2", code: "5FB878"}
+			, { name: "green3", code: "45ACA9"}
+			, { name: "purple1", code: "AC0072"}
+			, { name: "purple2", code: "FF66CD"}
+			, { name: "yellow1", code: "FFFF99"}
+			, { name: "yellow2", code: "FCDB39"}
+			, { name: "yellow3", code: "FFFAF1"}
+			, { name: "orange1", code: "f38107"}
+			, { name: "orange2", code: "DE6D43"}
+			, { name: "orange3", code: "ffb15c"}
+			, { name: "orange4", code: "F1BC78"}
+			, { name: "brown1", code: "B58D4F"}
+			, { name: "brown2", code: "D9BB7E"}
+			, { name: "gray1", code: "999"}
+			, { name: "gray2", code: "2F4056"}
+			, { name: "gray3", code: "CCC"}
+			, { name: "gray4", code: "F5F5F5"}
+			, { name: "gray5", code: "393D49"}
+			, { name: "gray6", code: "e3e3e1"}
+			, { name: "black1", code: "000"}
+			, { name: "black2", code: "757575"}
+			, { name: "black3", code: "2e2e2e"}
+			, { name: "black4", code: "292929"}
+			, { name: "white1", code: "FFF"}
+			, { name: "white2", code: "FBFBFB"}
+			, { name: "white3", code: "F8F8F8"}
+			, { name: "up", code: "E00"}
+			, { name: "down", code: "02C501"}
+		];
+
+	}
+	
+	angular.module('app', ['ngFunc'])
+		.controller('mainCtrl', mainCtrl)
+}());
+</script>
+
