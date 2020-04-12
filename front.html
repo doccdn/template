@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="app">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Front</title>
+<script src="https://cdn.jsdelivr.net/npm/angular@1.4.14/angular.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-func-3.01.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-func-3.01.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-tf-template-3.01.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-pattem-3.01.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-ajax-1.01.min.js"></script>-->
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-style-3.02.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-animation-3.01.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-icon-3.01.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-form-3.01.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-func-3.01.min.css" rel="stylesheet">
+<style>
+body{ background-color: #000}
+.line{ min-height: 42px; padding-left: 10px; color: #FFF; overflow: hidden; }
+.front-box{ width: 300px; float: left; }
+.text-box{ float: left; }
+.text{  color: #FFF; font-size: 20px;  }
+</style>
+</head>
+<body ng-controller="mainCtrl">
+<div class="line">
+	<input data-ng-model="vm.text" type="text" class="tf-font-light tf-input tf-black3 tf-focus-blue1 tf-longest tf-3D"></input>
+	<input data-ng-model="vm.size" type="text" class="tf-font-light tf-input tf-black3 tf-focus-blue1 tf-shortest tf-3D"></input>
+</div>
+<br />
+<div data-ng-repeat="(x, front) in vm.fronts" class="line">
+	<div class="front-box"><span class="tf-font-light" data-ng-bind="front"></span></div>
+	<div class="text-box"><span class="text" data-ng-style="{'font-family': front, 'font-size': vm.size + 'px'}" data-ng-bind="vm.text"></span></div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+(function () {
+	var mainCtrl = function($scope, $timeout, $interval, $filter, $location, $http, $q, $window, apiFactory, dbFactory, fnService){
+		var api = $scope.api = apiFactory;
+		var db = $scope.db = dbFactory;
+		var fn = $scope.fn = fnService;
+		var vm = $scope.vm = {};
+
+		console.log("MainCtrl Start");
+		
+		vm.size = 18;
+		vm.text = "測試繁體字體   测试简体字体   Test Engish Front";
+		
+		vm.fronts = [
+			'方正卓越體 繁U'
+			, '金梅墨筆美工國際碼'
+			, '文鼎ＰＯＰ－４'
+			, '文鼎中粗隸'
+			, '造字工房悦圆 G0v1'
+			, '文鼎中特廣告體'
+			//, '文鼎中粗隸'
+			, '文鼎中鋼筆行楷'
+			, '文鼎火柴體'
+			, '方正晴朗体 简繁'
+			, '文鼎粗魏碑'
+			, '文鼎細鋼筆行楷'
+			, '文鼎彈簧體'
+		]
+
+	}
+	
+	angular.module('app', ['ngFunc'])
+		.controller('mainCtrl', mainCtrl)
+}());
+</script>
