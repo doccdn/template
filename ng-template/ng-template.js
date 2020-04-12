@@ -19,7 +19,7 @@ if(typeof Object.assign != 'function'){
 	};
 }
 
-var ngTempForm = function(){
+var ngTempForm = function($sce){
 	return {
 		restrict: 'E',
 		scope:{
@@ -28,7 +28,7 @@ var ngTempForm = function(){
 			, formObj: "="
 			, formElem: "="
 		},
-		templateUrl: 'ng-template/ng-form.html', 
+		templateUrl: $sce.trustAsResourceUrl('https://cdn.jsdelivr.net/gh/doccdn/template/ng-template/ng-form.html'),
 		link: function($scope, $elem, $attrs, ngModel){
 			$scope.getErrorType = function(ctrl){
 				var value = ctrl.$modelValue || ctrl.$viewValue;
@@ -54,7 +54,7 @@ var ngTempForm = function(){
 	}
 }
 
-var ngTempTable = function(){
+var ngTempTable = function($sce){
 	return {
 		restrict: 'E',
 		scope:{
@@ -62,7 +62,7 @@ var ngTempTable = function(){
 			, tableConfig: "="
 			, tableData: "="
 		},
-		templateUrl: 'ng-template/ng-table.html', 
+		templateUrl: $sce.trustAsResourceUrl('https://cdn.jsdelivr.net/gh/doccdn/template/ng-template/ng-table.html'),
 		link: function($scope, $elem, $attrs, ngModel) {
 			$scope.choiceAll = function(tableData){
 				$scope.checkboxAll = $scope.checkboxAll? false: true;
