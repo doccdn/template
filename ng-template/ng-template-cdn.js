@@ -19,7 +19,7 @@ if(typeof Object.assign != 'function'){
 	};
 }
 
-var ngTempForm = function(dbFactory){
+var ngTempForm = function($sce, dbFactory){
 	return {
 		restrict: 'E',
 		scope:{
@@ -28,7 +28,7 @@ var ngTempForm = function(dbFactory){
 			, formObj: "="
 			, formElem: "="
 		},
-		templateUrl: 'ng-template/ng-form.html',
+		templateUrl: $sce.trustAsResourceUrl('https://cdn.jsdelivr.net/gh/doccdn/template/ng-template/ng-form.html'),
 		link: function($scope, $elem, $attrs, ngModel){
 			$scope.db = dbFactory;
 			$scope.getErrorType = function(ctrl){
@@ -55,7 +55,7 @@ var ngTempForm = function(dbFactory){
 	}
 }
 
-var ngTempTable = functiondbFactory){
+var ngTempTable = function($sce, dbFactory){
 	return {
 		restrict: 'E',
 		scope:{
@@ -63,7 +63,7 @@ var ngTempTable = functiondbFactory){
 			, tableConfig: "="
 			, tableData: "="
 		},
-		templateUrl: 'ng-template/ng-table.html',
+		templateUrl: $sce.trustAsResourceUrl('https://cdn.jsdelivr.net/gh/doccdn/template/ng-template/ng-table.html'),
 		link: function($scope, $elem, $attrs, ngModel) {
 			$scope.db = dbFactory;
 			$scope.choiceAll = function(tableData){
@@ -79,7 +79,7 @@ var ngTempTable = functiondbFactory){
 	}
 }
 
-var ngTempInfo = function(dbFactory){
+var ngTempInfo = function($sce, dbFactory){
 	return {
 		restrict: 'E',
 		scope:{
@@ -87,7 +87,7 @@ var ngTempInfo = function(dbFactory){
 			, infoConfig: "="
 			, infoObj: "="
 		},
-		templateUrl: 'ng-template/ng-info.html', 
+		templateUrl: $sce.trustAsResourceUrl('https://cdn.jsdelivr.net/gh/doccdn/template/ng-template/ng-info.html'), 
 		link: function($scope, $elem, $attrs, ngModel) {
 			$scope.db = dbFactory;
 		}
