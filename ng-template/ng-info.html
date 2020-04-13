@@ -1,0 +1,50 @@
+<div data-ng-class="elemCss.searchBox" data-ng-if="!infoConfig.searchOff && (infoConfig.searchElem || infoConfig.backFn)">
+	<form data-ng-submit="infoConfig.searchFn(infoConfig.searchObj)">
+		<span data-ng-repeat="(x, obj) in infoConfig.searchElem">
+			<span data-ng-if="obj.subject"><span data-ng-bind="obj.subject"></span>:</span>
+			<input data-ng-if="!obj.select && !obj.datePicker" type="text" data-ng-class="elemCss.short" placeholder="{{ obj.text }}" data-ng-model="infoConfig.searchObj[obj.name]" />
+			<input data-ng-if="!obj.select && obj.datePicker" type="text" data-ng-class="elemCss.short" placeholder="{{ obj.text }}" autocomplete="off" data-ng-model="infoConfig.searchObj[obj.name]" data-jq-date-picker />
+			<select data-ng-if="obj.select" data-ng-class="elemCss.select" data-ng-model="infoConfig.searchObj[obj.name]" data-ng-options="opt.id as opt.name for opt in obj.select">
+				<option value="">{{ obj.text }}</option>
+			</select>
+			<span class="tf-help tf-help-shorter tf-help-icon" data-con="{{ obj.help }}" data-ng-if="obj.help"></span>
+			&nbsp;&nbsp;&nbsp;
+		</span>
+		<a data-ng-class="elemCss.btn" data-ng-click="infoConfig.searchFn(infoConfig.searchObj)" target="_self" data-ng-if="infoConfig.searchFn">Search</a>
+		<a data-ng-class="elemCss.btn" data-ng-click="infoConfig.clearFn()" target="_self" data-ng-if="infoConfig.clearFn">Clear</a>
+		<a data-ng-class="elemCss.backLink" data-ng-click="infoConfig.backFn()" target="_self" data-ng-if="infoConfig.backFn"><< Back</a>
+	</form>
+</div>
+
+
+<div data-ng-class="elemCss.infoData" data-ng-if="!db.infoInitOff  && !db.allInfoDataHide && infoConfig && infoObj">
+	<div data-ng-class="elemCss.infoDataElem" data-ng-style="obj.elemStyle" data-ng-repeat="(x, obj) in infoConfig.objField" data-ng-if="obj.hide != true && !infoObj.dataHide[obj.name]">
+		<!-- subject -->
+		<div data-ng-class="obj.right? elemCss.infoDataThRight: elemCss.infoDataTh" data-ng-style="obj.thStyle">{{ obj.text? obj.text: "" }} <span class="tf-help tf-help-icon" data-con="{{ obj.help }}" data-ng-if="obj.help"></span></div>
+		<!-- item -->
+		<div data-ng-class="obj.right? elemCss.infoDataTdRight: elemCss.infoDataTd" data-ng-style="obj.tdStyle">
+			<!-- text -->
+			<span data-ng-if="obj.elem == 'text'">{{ (obj.before || '') + infoObj[obj.name] + (obj.unit || '') }}</span>
+			<!-- num -->
+			<span data-ng-if="obj.elem == 'num'">{{ infoObj[obj.name] | number:obj.unit  }}</span>
+			<!-- small -->
+			<span data-ng-class="elemCss.smallText" data-ng-if="obj.elem == 'small'">{{ (obj.before || '') + infoObj[obj.name] + (obj.unit || '') }}</span>
+			<!-- light -->
+			<span data-ng-class="elemCss.lightText" data-ng-if="obj.elem == 'light'">{{ (obj.before || '') + infoObj[obj.name] + (obj.unit || '') }}</span>
+			<!-- timestamp -->
+			<span data-ng-class="elemCss.normalText" data-ng-if="obj.elem == 'timestamp'">{{ ((obj.before || '') + infoObj[obj.name] + (obj.unit || '')) | date: (obj.pattem || "yyyy-MM-dd HH:mm:ss") }}</span>
+			<!-- url -->
+			<a data-ng-class="elemCss.linkText" data-ng-if="obj.elem == 'url'" data-ng-href="{{ (obj.before || '') + infoObj[obj.name] + (obj.unit || '') }}" target="_blank">{{ obj.dist || ((obj.before || '') + infoObj[obj.name] + (obj.unit || '')) }}</a>
+			<!-- click -->
+			<a data-ng-class="elemCss.linkText" data-ng-if="obj.elem == 'click'" data-ng-href="{{ (obj.before || '') + infoObj[obj.name] + (obj.unit || '') }}" target="_blank">{{ obj.dist || infoObj[obj.name] }}</a>
+			<!-- selfurl -->
+			<a data-ng-class="elemCss.linkText" data-ng-if="obj.elem == 'selfurl'" data-ng-href="{{ (obj.before || '') + infoObj[obj.name] + (obj.unit || '') }}" target="_self">{{ obj.dist || ((obj.before || '') + infoObj[obj.name] + (obj.unit || '')) }}</a>
+			<!-- selfclick -->
+			<a data-ng-class="elemCss.linkText" data-ng-if="obj.elem == 'selclick'" data-ng-href="{{ (obj.before || '') + infoObj[obj.name] + (obj.unit || '') }}" target="_self">{{ obj.dist || infoObj[obj.name] }}</a>
+			<!-- password -->
+			<span data-ng-class="elemCss.normalText" data-ng-if="obj.elem == 'password'">{{ (((obj.before || '') + infoObj[obj.name] + (obj.unit || '')) | limitTo: 2) + '****' }}</span>
+			<!-- fn -->
+			<a data-ng-class="elemCss.linkText" data-ng-click="obj.fn(((obj.before || '') + infoObj[obj.name] + (obj.unit || '')))" data-ng-if="obj.elem == 'fn' || obj.fn" target="_self">{{ obj.dist || ((obj.before || '') + infoObj[obj.name] + (obj.unit || '')) }}</a>
+		</div>
+	</div>
+</div>

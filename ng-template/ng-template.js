@@ -19,7 +19,7 @@ if(typeof Object.assign != 'function'){
 	};
 }
 
-var ngTempForm = function($sce){
+var ngTempForm = function(dbService){
 	return {
 		restrict: 'E',
 		scope:{
@@ -28,8 +28,9 @@ var ngTempForm = function($sce){
 			, formObj: "="
 			, formElem: "="
 		},
-		templateUrl: $sce.trustAsResourceUrl('https://cdn.jsdelivr.net/gh/doccdn/template/ng-template/ng-form.html'),
+		templateUrl: 'ng-template/ng-form.html', 
 		link: function($scope, $elem, $attrs, ngModel){
+			$scope.db = dbService;
 			$scope.getErrorType = function(ctrl){
 				var value = ctrl.$modelValue || ctrl.$viewValue;
 				if(value && value != ""){
@@ -54,7 +55,7 @@ var ngTempForm = function($sce){
 	}
 }
 
-var ngTempTable = function($sce){
+var ngTempTable = function(dbService){
 	return {
 		restrict: 'E',
 		scope:{
@@ -62,8 +63,9 @@ var ngTempTable = function($sce){
 			, tableConfig: "="
 			, tableData: "="
 		},
-		templateUrl: $sce.trustAsResourceUrl('https://cdn.jsdelivr.net/gh/doccdn/template/ng-template/ng-table.html'),
+		templateUrl: 'ng-template/ng-table.html', 
 		link: function($scope, $elem, $attrs, ngModel) {
+			$scope.db = dbService;
 			$scope.choiceAll = function(tableData){
 				$scope.checkboxAll = $scope.checkboxAll? false: true;
 				if(tableData){
@@ -77,7 +79,46 @@ var ngTempTable = function($sce){
 	}
 }
 
+var ngTempInfo = function(dbService){
+	return {
+		restrict: 'E',
+		scope:{
+			elemCss: "="
+			, infoConfig: "="
+			, infoObj: "="
+		},
+		templateUrl: 'ng-template/ng-info.html', 
+		link: function($scope, $elem, $attrs, ngModel) {
+			$scope.db = dbService;
+		}
+	}
+}
+
+var jqDatePicker = function($timeout) {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, element, attrs, ngModelCtrl) {
+            $timeout( function(){
+                $(element).datepicker({
+                    dateFormat:'yy-mm-dd',
+                    minDate: new Date(1910,0,1),
+                    yearRange:'-20:+20',
+                    changeMonth: true,
+                    changeYear: true,
+                    onSelect: function (date) {
+                        ngModelCtrl.$setViewValue(date);
+                        scope.$apply();
+                    }
+                });
+            });
+        }
+    };
+}
+
 angular.module('ngTemplate', [])
 	.directive('ngTempForm', ngTempForm)
 	.directive('ngTempTable', ngTempTable)
+	.directive('ngTempInfo', ngTempInfo)
+	.directive('jqDatePicker', jqDatePicker)
 	;

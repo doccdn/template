@@ -1,8 +1,8 @@
-<div data-ng-class="elemCss.elemBox"data-ng-repeat="(x, obj) in formConfig" data-ng-init="name = obj.name || x" data-ng-show="obj.hide != true">
+<div data-ng-class="elemCss.elemBox" data-ng-style="obj.elemStyle" data-ng-repeat="(x, obj) in formConfig" data-ng-init="name = obj.name || x" data-ng-show="obj.hide != true">
 	<!-- subject -->
-	<div data-ng-class="elemCss.subjectBox">{{ obj.subject? obj.subject: "" }}<span class="tf-help tf-help-shorter tf-help-icon" data-con="{{ obj.help }}" data-ng-if="obj.help"></span>{{ obj.subject? "：": "" }}</div>
+	<div data-ng-class="elemCss.subjectBox" data-ng-style="obj.thStyle">{{ obj.subject? obj.subject: "" }}<span class="tf-help tf-help-icon" data-con="{{ obj.help }}" data-ng-if="obj.help"></span>{{ obj.subject? "：": "" }}</div>
 	<!-- item -->
-	<div data-ng-class="elemCss.itemBox">
+	<div data-ng-class="elemCss.itemBox"  data-ng-style="obj.tdStyle">
 		<!-- text -->
 		<span data-ng-class="elemCss.normalText" data-ng-if="obj.elem == 'text'">{{ formObj[name] || obj.text }}</span>
 		<!-- light -->
@@ -15,10 +15,12 @@
 		<span data-ng-class="elemCss.normalText" data-ng-if="obj.elem == 'date'">{{ (formObj[name] || obj.text) | date: (obj.pattem || "yyyy-MM-dd HH:mm:ss") }}</span>
 		<!-- btn -->
 		<a data-ng-class="obj.elem == 'btn'? elemCss.btn: elemCss.minibtn" data-ng-click="obj.fn(formObj[name])" data-ng-if="obj.elem == 'btn' || obj.elem == 'minibtn'" target="_self">{{ obj.text }}</a>
+		<!-- date -->
+		<input data-ng-if="obj.elem == 'datePicker'" type="text" data-ng-class="elemCss.input" id="{{ name }}" name="{{ name }}" data-ng-pattern="obj.pattem"  placeholder="{{ obj.text }}" autocomplete="off" data-ng-model="formObj[name]" data-ng-required="obj.required" data-ng-disabled="obj.disabled" data-ng-change="obj.fn && obj.fn(formObj[name])" data-jq-date-picker />
 		<!-- input -->
-		<input data-ng-if="obj.elem == 'input' || obj.elem == 'short' || obj.elem == 'long' || obj.elem == 'full'  || obj.elem == 'password' " type="{{ obj.elem == 'password'? 'password': 'text'}}" data-ng-class="elemCss[obj.elem]" id="{{ name }}" name="{{ name }}" data-ng-pattern="obj.pattem"  placeholder="{{ obj.text }}" autocomplete="off" data-ng-model="formObj[name]" data-ng-required="obj.required" data-ng-disabled="obj.disabled" />
+		<input data-ng-if="obj.elem == 'input' || obj.elem == 'short' || obj.elem == 'long' || obj.elem == 'full'  || obj.elem == 'password' " type="{{ obj.elem == 'password'? 'password': 'text'}}" data-ng-class="elemCss[obj.elem]" id="{{ name }}" name="{{ name }}" data-ng-pattern="obj.pattem"  placeholder="{{ obj.text }}" autocomplete="off" data-ng-model="formObj[name]" data-ng-required="obj.required" data-ng-disabled="obj.disabled" data-ng-change="obj.fn && obj.fn(formObj[name])" />
 		<!-- select -->
-		<select data-ng-if="obj.elem == 'select'" data-ng-class="elemCss[obj.elem]" id="{{ name }}" name="{{ name }}" data-ng-model="formObj[name]" data-ng-options="obj.id as obj.name for obj in obj.option" data-ng-required="obj.required" data-ng-pattern="obj.pattem" data-ng-disabled="obj.disabled">
+		<select data-ng-if="obj.elem == 'select'" data-ng-class="elemCss[obj.elem]" id="{{ name }}" name="{{ name }}" data-ng-model="formObj[name]" data-ng-options="obj.id as obj.name for obj in obj.option" data-ng-required="obj.required" data-ng-pattern="obj.pattem" data-ng-disabled="obj.disabled" data-ng-change="obj.fn && obj.fn(formObj[name])">
 			<option value="">{{ obj.text }}</option>
 		</select>
 		<!-- list -->
@@ -26,25 +28,25 @@
 			<a class="tf-hover tf-shorter" data-ng-class="formObj[name] != opt.id? elemCss.list: elemCss.listSelect" data-ng-click="formObj[name] = opt.id; obj.fn && obj.fn(formObj[name])" data-ng-repeat="(x, opt) in obj.option" target="_self">{{ opt.name }}</a>
 		</span>
 		<!-- textarea -->
-		<textarea data-ng-if="obj.elem == 'textarea' " data-ng-class="elemCss.textarea" id="{{ name }}" name="{{ name }}" placeholder="{{ obj.text }}"  data-ng-model="formObj[name]" data-ng-pattern="obj.pattem" data-change-func="obj.fn" ng-required="obj.required" data-ng-disabled="obj.disabled"></textarea>
+		<textarea data-ng-if="obj.elem == 'textarea' " data-ng-class="elemCss.textarea" id="{{ name }}" name="{{ name }}" placeholder="{{ obj.text }}"  data-ng-model="formObj[name]" data-ng-pattern="obj.pattem" data-change-func="obj.fn" ng-required="obj.required" data-ng-disabled="obj.disabled" data-ng-change="obj.fn && obj.fn(formObj[name])"></textarea>
 		<!-- blog -->
-		<textarea data-ng-if="obj.elem == 'blog' " data-ng-class="elemCss.blog" id="{{ name }}" name="{{ name }}" placeholder="{{ obj.text }}"  data-ng-model="formObj[name]" data-ng-pattern="obj.pattem" data-change-func="obj.fn" ng-required="obj.required" data-ng-disabled="obj.disabled"></textarea>
+		<textarea data-ng-if="obj.elem == 'blog' " data-ng-class="elemCss.blog" id="{{ name }}" name="{{ name }}" placeholder="{{ obj.text }}"  data-ng-model="formObj[name]" data-ng-pattern="obj.pattem" data-change-func="obj.fn" ng-required="obj.required" data-ng-disabled="obj.disabled" data-ng-change="obj.fn && obj.fn(formObj[name])"></textarea>
 		<!-- radio -->
 		<div data-ng-if="obj.elem == 'radio'">
     		<span data-ng-class="elemCss.radio" data-ng-repeat="(x, opt) in obj.option">
-    			<input id="{{ name + x }}" name="{{ name }}" class="radio" type="radio" value="{{ opt.id }}" data-ng-model="formObj[name]" data-ng-disabled="obj.disabled" />
+    			<input id="{{ name + x }}" name="{{ name }}" class="radio" type="radio" value="{{ opt.id }}" data-ng-model="formObj[name]" data-ng-disabled="obj.disabled" data-ng-change="obj.fn && obj.fn(formObj[name])" />
     			<label class="label" data-ng-click="formObj[name] = obj.disabled? formObj[name]: opt.id">{{ opt.name }}</label>
     		</span>
 		</div>
 		<!-- checkbox -->
 		<div data-ng-init="formObj[name] = !formObj[name] && formObj[name] !== false? obj.option[0]: formObj[name]" data-ng-if="obj.elem == 'checkbox'">
 			<span data-ng-class="elemCss.checkbox" data-ng-repeat="(x, group) in obj.name">
-				<input id="{{ group + x }}" name="{{ group }}" class="checkbox" type="checkbox" value="{{ obj.option[1] }}" data-ng-model="formObj[group]" data-ng-disabled="obj.disabled[x]" />
+				<input id="{{ group + x }}" name="{{ group }}" class="checkbox" type="checkbox" value="{{ obj.option[1] }}" data-ng-model="formObj[group]" data-ng-disabled="obj.disabled[x]" data-ng-change="obj.fn && obj.fn(formObj[name])" />
 				<label class="label"  data-ng-click="formObj[group] == obj.option[0]? obj.option[1]: obj.option[0]; " >{{ obj.text[x] }}</label>
 			</span>
 		</div>
 		<!-- error -->
-		<div data-ng-class="elemCss.errorText" data-ng-if="(obj.elem == 'input' || obj.elem == 'short' || obj.elem == 'long' || obj.elem == 'full'  || obj.elem == 'password' || obj.elem == 'select' || obj.elem == 'textarea' || obj.elem == 'blog') && getErrorType(formElem[name])">{{ getErrorMsg(formElem[name], obj.errorMsg) }}</div>
+		<div data-ng-class="elemCss.errorText" data-ng-if="(obj.elem == 'datePicker' || obj.elem == 'input' || obj.elem == 'short' || obj.elem == 'long' || obj.elem == 'full'  || obj.elem == 'password' || obj.elem == 'select' || obj.elem == 'textarea' || obj.elem == 'blog') && (getErrorType(formElem[name]) || obj.msg)">{{ getErrorType(formElem[name])? getErrorMsg(formElem[name], obj.errorMsg): obj.msg }}</div>
 	</div>
 
 </div>
