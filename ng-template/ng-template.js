@@ -19,7 +19,7 @@ if(typeof Object.assign != 'function'){
 	};
 }
 
-var ngTempForm = function(dbFactory){
+var ngTempForm = function(dbService){
 	return {
 		restrict: 'E',
 		scope:{
@@ -28,9 +28,9 @@ var ngTempForm = function(dbFactory){
 			, formObj: "="
 			, formElem: "="
 		},
-		templateUrl: 'ng-template/ng-form.html',
+		templateUrl: 'ng-template/ng-form.html', 
 		link: function($scope, $elem, $attrs, ngModel){
-			$scope.db = dbFactory;
+			$scope.db = dbService;
 			$scope.getErrorType = function(ctrl){
 				var value = ctrl.$modelValue || ctrl.$viewValue;
 				if(value && value != ""){
@@ -55,7 +55,7 @@ var ngTempForm = function(dbFactory){
 	}
 }
 
-var ngTempTable = functiondbFactory){
+var ngTempTable = function(dbService){
 	return {
 		restrict: 'E',
 		scope:{
@@ -63,9 +63,9 @@ var ngTempTable = functiondbFactory){
 			, tableConfig: "="
 			, tableData: "="
 		},
-		templateUrl: 'ng-template/ng-table.html',
+		templateUrl: 'ng-template/ng-table.html', 
 		link: function($scope, $elem, $attrs, ngModel) {
-			$scope.db = dbFactory;
+			$scope.db = dbService;
 			$scope.choiceAll = function(tableData){
 				$scope.checkboxAll = $scope.checkboxAll? false: true;
 				if(tableData){
@@ -79,7 +79,7 @@ var ngTempTable = functiondbFactory){
 	}
 }
 
-var ngTempInfo = function(dbFactory){
+var ngTempInfo = function(dbService){
 	return {
 		restrict: 'E',
 		scope:{
@@ -89,7 +89,7 @@ var ngTempInfo = function(dbFactory){
 		},
 		templateUrl: 'ng-template/ng-info.html', 
 		link: function($scope, $elem, $attrs, ngModel) {
-			$scope.db = dbFactory;
+			$scope.db = dbService;
 		}
 	}
 }
