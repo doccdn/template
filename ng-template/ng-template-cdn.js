@@ -19,7 +19,7 @@ if(typeof Object.assign != 'function'){
 	};
 }
 
-var ngTempForm = function($sce, dbFactory){
+var ngTempForm = function($sce, dbService){
 	return {
 		restrict: 'E',
 		scope:{
@@ -30,7 +30,7 @@ var ngTempForm = function($sce, dbFactory){
 		},
 		templateUrl: $sce.trustAsResourceUrl('https://cdn.jsdelivr.net/gh/doccdn/template/ng-template/ng-form.html'),
 		link: function($scope, $elem, $attrs, ngModel){
-			$scope.db = dbFactory;
+			$scope.db = dbService;
 			$scope.getErrorType = function(ctrl){
 				var value = ctrl.$modelValue || ctrl.$viewValue;
 				if(value && value != ""){
@@ -55,7 +55,7 @@ var ngTempForm = function($sce, dbFactory){
 	}
 }
 
-var ngTempTable = function($sce, dbFactory){
+var ngTempTable = function($sce, dbService){
 	return {
 		restrict: 'E',
 		scope:{
@@ -65,7 +65,7 @@ var ngTempTable = function($sce, dbFactory){
 		},
 		templateUrl: $sce.trustAsResourceUrl('https://cdn.jsdelivr.net/gh/doccdn/template/ng-template/ng-table.html'),
 		link: function($scope, $elem, $attrs, ngModel) {
-			$scope.db = dbFactory;
+			$scope.db = dbService;
 			$scope.choiceAll = function(tableData){
 				$scope.checkboxAll = $scope.checkboxAll? false: true;
 				if(tableData){
@@ -79,7 +79,7 @@ var ngTempTable = function($sce, dbFactory){
 	}
 }
 
-var ngTempInfo = function($sce, dbFactory){
+var ngTempInfo = function($sce, dbService){
 	return {
 		restrict: 'E',
 		scope:{
@@ -89,7 +89,7 @@ var ngTempInfo = function($sce, dbFactory){
 		},
 		templateUrl: $sce.trustAsResourceUrl('https://cdn.jsdelivr.net/gh/doccdn/template/ng-template/ng-info.html'), 
 		link: function($scope, $elem, $attrs, ngModel) {
-			$scope.db = dbFactory;
+			$scope.db = dbService;
 		}
 	}
 }
