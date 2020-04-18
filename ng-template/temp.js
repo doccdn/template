@@ -64,12 +64,12 @@
 		db.formSubject = ["Exchange SubAccount Info"];
 		//ng-template
 		var formConfig = [[{}]];
-			//text, light, small, password, link, date, btn, minibtn, short, input, long, full, textarea, blog, select, list, radio, datePicker
+			//text, light, small, password, link, date, btn, minibtn, short, input, long, full, textarea, blog, select, list, checkbox, radio, datePicker
 		     /*{ name: "", elem: "", subject: "", text: "-- Select --", value: "index.php", pattem: "yyyy年MM月dd日 HH:mm:ss", option: [{id: 1, name: "name1"}], help: "help", required: false, disabled: false
 		    	  , elemStyle: {width: "66%"}, thStyle: {width: "20%"}, tdStyle: {width: "80%"}
 		    	  , errorMsg: {required:  "input内容必需填写", minlength: "input内容设置过短", maxlength: "input内容设置过长", pattern: "input内容格式不符"}
 		      }
-		      , { name: ["",""], elem: "", subject: "", text: ["",""], option: [0, 1], disabled: [false, false]}*/
+		      , { name: ["",""], elem: "checkbox", subject: "", text: ["",""], option: [0, 1], disabled: [false, false]}*/
 
 		db.formObj = {comp_no: 1, margin_method: "G"}
 		

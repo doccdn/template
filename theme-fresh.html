@@ -4,17 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>CSS测试</title>
 <script src="https://cdn.jsdelivr.net/npm/angular@1.4.14/angular.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-func-3.01.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-func-3.01.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-tf-template-3.01.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-pattem-3.01.min.js"></script>
-<!--<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-ajax-1.01.min.js"></script>-->
-<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-style-3.02.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-animation-3.01.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-icon-3.01.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-form-3.01.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-func-3.01.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Titillium+Web:300,400,600" rel="stylesheet">
+<script src="/WebProject/doccdn_com/libs-ext/js-func.js"></script>
+<script src="/WebProject/doccdn_com/libs-ext/ng-func.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/js-pattem.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-style.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-animation.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-icon.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/tf-form.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/doccdn/com/libs-ext/ng-func.css" rel="stylesheet">
 <style>
 body{ padding-left: 10px !important; padding-top: 50px !important; }
 .font{ margin-top: 0px !important; margin-bottom: 0px !important; width: 1900px !important;  }
@@ -472,9 +469,9 @@ body{ padding-left: 10px !important; padding-top: 50px !important; }
 
 <script type="text/javascript">
 (function () {
-	var mainCtrl = function($scope, $timeout, $interval, $filter, $location, $http, $q, $window, apiFactory, dbFactory, fnService){
-		var api = $scope.api = apiFactory;
-		var db = $scope.db = dbFactory;
+	var mainCtrl = function($scope, $timeout, $interval, $filter, $location, $http, $q, $window, apiService, dbService, fnService){
+		var api = $scope.api = apiService;
+		var db = $scope.db = dbService;
 		var fn = $scope.fn = fnService;
 		var vm = $scope.vm = {};
 
