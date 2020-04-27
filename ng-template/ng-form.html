@@ -33,16 +33,16 @@
 		<textarea data-ng-if="obj.elem == 'blog' " data-ng-class="obj.objCss || elemCss.blog" data-ng-style="obj.objStyle" id="{{ name }}" name="{{ name }}" placeholder="{{ obj.text }}"  data-ng-model="formObj[name]" data-ng-pattern="obj.pattem" data-change-func="obj.fn" ng-required="obj.required" data-ng-disabled="obj.disabled" data-ng-change="obj.fn && obj.fn(formObj[name])"></textarea>
 		<!-- radio -->
 		<div data-ng-if="obj.elem == 'radio'">
-    		<span data-ng-class="obj.objCss || elemCss.radio" data-ng-style="obj.objStyle" data-ng-repeat="(x, opt) in obj.option">
-    			<input id="{{ name + x }}" name="{{ name }}" type="radio" value="{{ opt.id }}" data-ng-model="formObj[name]" data-ng-disabled="obj.disabled" data-ng-change="obj.fn && obj.fn(formObj[name])" />
-    			<label data-ng-class="obj.labelCss" data-ng-style="obj.labelStyle" data-ng-click="formObj[name] = obj.disabled? formObj[name]: opt.id">{{ opt.name }}</label>
+    		<span data-ng-class="obj.objCss? obj.objCss: elemCss.radio" data-ng-style="obj.objStyle" data-ng-repeat="(x, opt) in obj.option">
+    			<input class="radio" id="{{ name + x }}" name="{{ name }}" type="radio" value="{{ opt.id }}" data-ng-model="formObj[name]" data-ng-disabled="obj.disabled" data-ng-change="obj.fn && obj.fn(formObj[name])" />
+    			<label class="label" data-ng-class="obj.labelCss" data-ng-style="obj.labelStyle" data-ng-click="formObj[name] = obj.disabled? formObj[name]: opt.id">{{ opt.name }}</label>
     		</span>
 		</div>
 		<!-- checkbox -->
 		<div data-ng-init="formObj[name] = !formObj[name] && formObj[name] !== false? obj.option[0]: formObj[name]" data-ng-if="obj.elem == 'checkbox'">
-			<span data-ng-class="obj.objCss || elemCss.checkbox" data-ng-style="obj.objStyle" data-ng-repeat="(x, group) in obj.name">
-				<input id="{{ group + x }}" name="{{ group }}" type="checkbox" value="{{ obj.option[1] }}" data-ng-model="formObj[group]" data-ng-disabled="obj.disabled[x]" data-ng-change="obj.fn && obj.fn(formObj[name])" />
-				<label data-ng-class="obj.labelCss" data-ng-style="obj.labelStyle" data-ng-click="formObj[group] == obj.option[0]? obj.option[1]: obj.option[0]; " >{{ obj.text[x] }}</label>
+			<span data-ng-class="obj.objCss? obj.objCss: elemCss.checkbox" data-ng-style="obj.objStyle" data-ng-repeat="(x, group) in obj.name">
+				<input class="checkbox" id="{{ group + x }}" name="{{ group }}" type="checkbox" value="{{ obj.option[1] }}" data-ng-model="formObj[group]" data-ng-disabled="obj.disabled[x]" data-ng-change="obj.fn && obj.fn(formObj[name])" />
+				<label class="label" data-ng-class="obj.labelCss" data-ng-style="obj.labelStyle" data-ng-click="formObj[group] == obj.option[0]? obj.option[1]: obj.option[0]; " >{{ obj.text[x] }}</label>
 			</span>
 		</div>
 		<!-- error -->
